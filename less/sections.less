@@ -1,0 +1,219 @@
+@import "mixins";
+
+/* =========================================================================
+   General Section Styles
+ =========================================================================== */
+
+.section {
+	.clearfix();
+	width: 100%;
+	padding: @section-padding-top 0 @section-padding-bottom;
+	@media @lg {padding: @section-padding-top * .6 0 @section-padding-bottom * .6;}
+	@media @sm {padding: @section-padding-top * .3 0 @section-padding-bottom * .3;}
+
+	&.white {background-color: @color-white;}
+	&.dark {background-color: @color-dark;}
+
+	&.background {
+		position: relative;
+		z-index: 0;
+		.background-size();
+
+		&:before {
+			content: '';
+			.absolute(@z-index: -1);
+			background-color: fade(@color-dark5, 50%);
+			display: block;
+		}
+	}
+
+	&.dark,
+	&.background {
+		.section-pre-title,
+		.section-title,
+		.section-description {
+			color: @color-white;
+		}
+	}
+}
+
+.section-header {
+	text-align: center;
+	margin-bottom: 100px;
+	@media @sm {margin-bottom: 40px;}
+	@media @xs {margin-bottom: 30px;}
+}
+
+.section-title {
+	font-size: @font-size-h0;
+	@media @lg {font-size: @font-size-h0 - 6;}
+	@media @xmd {font-size: @font-size-h0 - 10;}
+	@media @md {font-size: @font-size-h1;}
+	@media @sm {font-size: @font-size-h2; br {display: none;}}
+	@media @xs {font-size: 26px;}
+	@media @xxs {font-size: 24px;}
+	font-weight: 300;
+	color: @color-dark5;
+	line-height: 1.14;
+	text-transform: none;
+	margin-bottom: .3em;
+
+	&.big {
+		font-size: @font-size-h0 + 16;
+		line-height: 1.2;
+		@media @xlg {font-size: @font-size-h0 + 4;}
+		@media @lg {font-size: @font-size-h0;}
+		@media @xmd {font-size: 54px;}
+		@media @md {font-size: 50px;}
+		@media @sm {font-size: 40px;}
+		@media @xs {font-size: 32px;}
+		@media @xxs {font-size: 24px;}
+
+		&.text-left {
+			max-width: 70%;
+			@media @xlg {max-width: 100%;}
+		}
+	}
+}
+
+.section-show-more {
+	margin-top: 30px;
+
+	.show-more {
+		position: relative;
+		text-align: center;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+			height: 1px;
+			background-color: @color-lightGray;
+		}
+	}
+}
+
+.section-pre-title {
+	font-size: @font-size;
+	font-weight: 500;
+	color: @color-dark;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	margin-bottom: 1.8em;
+
+	@media @md {
+		font-size: @font-size-md;
+		margin-bottom: 1.5em;
+	}
+
+	@media @xs {
+		margin-bottom: 1.2em;
+	}
+
+	@media @xxs {
+		letter-spacing: .05em;
+		margin-bottom: 1em;
+	}
+}
+
+.section-description {
+	font-size: @font-size + 4;
+	font-style: italic;
+	line-height: 1.5;
+	padding: 0 4%;
+	@media @md {font-size: @font-size;}
+	@media @sm {font-size: @font-size-sm; br {display: none;}}
+	@media @xs {font-size: @font-size-xs;}
+}
+
+/* =========================================================================
+   Main Header
+ =========================================================================== */
+
+.main-header {
+	min-height: 770px;
+	padding: 120px 0 50px;
+	.background-size();
+	.display-flex();
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+	&.big {height: 100vh;}
+
+	@media @lg {
+		min-height: 640px;
+		padding: 90px 0 40px;
+	}
+
+	@media @md {min-height: 500px;}
+	@media @xs {min-height: 300px;}
+	@media @xxs {min-height: 200px;}
+
+	/*&:before {
+		content: '';
+		.absolute();
+		.gradient3points(fade(@color-dark, 90%), fade(@color-dark, 50%), 40%, fade(@color-dark, 30%));
+	}*/
+
+	.header-inner {
+		max-width: 70%;
+		text-align: center;
+		position: relative;
+		@media @md {max-width: 80%;}
+		@media @sm {max-width: 90%;}
+	}
+
+	.header-pre-title {
+		font-size: @font-size - 2;
+		color: @color-white;
+		text-transform: uppercase;
+		letter-spacing: .04em;
+		margin-bottom: 2em;
+		@media @xs {font-size: 12px;}
+
+		span {
+			display: inline-block;
+			position: relative;
+			padding: 0 40px;
+
+			&:before,
+			&:after {
+				content: '';
+				.size(24px, 1px);
+				background-color: @color-white;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				margin-top: -1px;
+			}
+
+			&:after {
+				left: auto;
+				right: 0;
+			}
+		}
+	}
+
+	.header-title {
+		font-size: 70px;
+		font-weight: 900;
+		color: @color-white;
+		line-height: 1;
+		letter-spacing: -.04em;
+		margin-bottom: .5em;
+		@media @md {font-size: 50px;}
+		@media @xs {font-size: 34px;}
+		@media @xxs {font-size: 30px;}
+	}
+
+	.header-description {
+		color: @color-white;
+		line-height: 1.7;
+		max-width: 390px;
+		margin: 0 auto 2em;
+	}
+}
+

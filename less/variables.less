@@ -1,0 +1,136 @@
+// Media Queries
+@media-xxs:	479px; // appears 320px - 479px
+@media-xs:	767px; // appears 480px - 767px
+@media-sm:	991px; // appears 768px - 991px
+@media-md:	1229px; // appears 992px - 1229px
+@media-xmd:	1359px; // appears 1230px - 1359px
+@media-lg:	1459px; // appears 1360px - 1459px
+@media-xlg:	1799px; // appears 1460px - 1799px
+
+@xxs:		~'only screen and (max-width: @{media-xxs})';
+@xs:		~'only screen and (max-width: @{media-xs})';
+@sm:		~'only screen and (max-width: @{media-sm})';
+@md:		~'only screen and (max-width: @{media-md})';
+@xmd:		~'only screen and (max-width: @{media-xmd})';
+@lg:		~'only screen and (max-width: @{media-lg})';
+@xlg:		~'only screen and (max-width: @{media-xlg})';
+
+// Transition Options
+@transition-duration:   	.2s; // Transition Duration
+@transition-easing: 	    ease-out; // Transition Timing Function
+
+// Alternative Transition Options
+@transition-duration2:  	.4s; // Transition Duration
+@transition-easing2: 	    cubic-bezier(.36, .96, .54, 1.2); // Transition Timing Function
+
+// Images
+@images-path:			    '../images'; // Relative path from styles to the Images Folder
+
+// Base Colors
+@color-white:			    #fff;
+@color-black:			    #000;
+@color-light:			    #f8f8f8;
+@color-light2:			    #ededed;
+@color-light3:			    #f0efeb;
+@color-light4:			    #f2f2f2;
+@color-lightGray:		    #dcdcdc;
+@color-gray:		        #bababa;
+@color-gray2:		        #737373;
+@color-gray3:		        #9b9b9b;
+@color-gray4:		        #868686;
+@color-dark:			    #202020;
+@color-dark2:			    #555;
+@color-dark3:			    #373737;
+@color-dark4:			    #2c2c2c;
+@color-dark5:			    #1a1a1a;
+@color-pink:			    #fe4080;
+@color-purple:			    #7954b6;
+
+// Body Background
+@body-background:			@color-light;
+
+// Fonts
+@fonts-path:			    '../fonts'; // Relative path from styles to the Fonts Folder
+//@iconic-font-name:		'LeCuisine'; // Iconic Font Name
+@iconic-font-name2:		    'FontAwesome'; // Font Awesome
+@iconic-font-name3:		    'Material Icons'; // Material Icons
+@font1:					    'MyriadPro', sans-serif;
+@font2:					    'Raleway', sans-serif;
+
+// Global Font
+@font-family:				@font1; // Font Family
+@font-size:					16px; // Font Size
+@font-size-xmd:				@font-size; // Font Size for Medium Devices
+@font-size-md:				@font-size - 1; // Font Size for Medium Devices
+@font-size-sm:				@font-size - 2; // Font Size for Small Devices
+@font-size-xs:				@font-size - 3; // Font Size for Extra Small Devices
+@font-weight:				400; // Font Weight
+@font-color:				@color-dark2; // Font Color
+@letter-spacing:			0; // Letter Spacing
+@paragraph-line-height:     1.4; // line-height for <p>
+@paragraph-margin-bottom:   1em; // margin-bottom for <p>
+
+// Headings
+@headings-font-family:		@font2;
+@font-size-h0:				60px;
+@font-size-h1:				42px;
+@font-size-h2:				36px;
+@font-size-h3:				32px;
+@font-size-h4:				24px;
+@font-size-h5:				22px;
+@font-size-h6:				20px;
+@headings-font-weight:		400;
+@headings-line-height:		1.2;
+@headings-color:			@color-purple;
+@headings-text-transform:	none;
+@headings-letter-spacing:	@letter-spacing;
+@headings-margin-bottom:	.7em;
+
+// Links
+@link-color:				@color-pink; // Link Color
+@link-color-hover:			darken(@color-pink, 5%); // Link Color on Hover
+
+// Buttons
+@button-color:				@color-pink; // Button Color
+@button-color-hover:		darken(@color-pink, 5%); // Button Color on Hover
+@button-font-family:		@font1; // Button Font Family
+@button-font-color:			@color-white; // Button Font Color
+@button-font-size:			@font-size - 3; // Button Font Size
+@button-font-weight:		700; // Button Font Weight
+@button-letter-spacing:		.1em; // Button Letter Spacing
+@button-text-transform:		uppercase; // Button Text Transform
+@button-height:				48px; // Button Height
+@button-sm-height:			36px; // Small Button Height
+@button-md-height:			60px; // Medium Button Height
+@button-lg-height:			65px; // Large Button Height
+@button-border-width:		1px; // Button Border Thickness
+@button-border-radius:		@button-height/2; // Button Border Radius
+
+// Form Elements
+@input-height:				44px; // Input Height
+@input-padding:				1.2em; // Input Padding (left and right)
+@input-margin:				22px; // Input Margin (bottom)
+@input-border-width:		1px; // Input Border Thickness
+@input-border-color:		difference(@color-gray, #1a1a21); // Input Border Color
+@input-border-radius:		0; // Input Border Radius
+@input-background-color:	transparent; // Input Background Color
+@input-font-size:			@font-size; // Input Font Size
+@input-font-weight:			400; // Input Font Weight
+@input-font-color:			@color-dark; // Input Font Color
+@placeholder-font-color:	@color-dark; // Placeholder Font Color
+@label-font-color:			@color-black; // Label Font Color
+
+// Section Paddings
+@section-padding-top:       150px;
+@section-padding-bottom:    150px;
+
+// Widget Bottom Margin
+@margin-bottom:       		60px;
+
+// Selection Colors
+@selection-font-color:      @color-white;
+@selection-bg-color:        @color-pink;
+
+// ToolTips
+@tooltip-font-color:        @color-white;
+@tooltip-bg:                @color-dark;

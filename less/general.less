@@ -1,0 +1,250 @@
+@import "mixins";
+
+/* General Styles */
+/*-----------------------------------*/
+
+html {
+	@media @sm {overflow-x: hidden;}
+}
+
+body {
+	font-family: @font-family;
+	font-size: @font-size;
+	.font-size();
+	font-weight: @font-weight;
+	color: @font-color;
+	letter-spacing: @letter-spacing;
+	background: @body-background;
+	.background-size(cover);
+	position: relative;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.oldie body {
+	background: none;
+	filter: none;
+	font-size: @font-size + 6;
+	color: @color-dark;
+	text-align: center;
+	padding-top: 200px;
+}
+::-moz-selection {
+	background: @selection-bg-color;
+	color: @selection-font-color;
+	text-shadow: none;
+}
+::selection {
+	background: @selection-bg-color;
+	color: @selection-font-color;
+	text-shadow: none;
+}
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	&.inline {display: inline-block;}
+	.gm-style & {display: inline-block; max-width: none;} // For Google Maps
+}
+embed, iframe {max-width: 100%;}
+.video-player {width: 100%;}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: @headings-font-family;
+	font-weight: @headings-font-weight;
+	line-height: @headings-line-height;
+	color: @headings-color;
+	text-transform: @headings-text-transform;
+	letter-spacing: @headings-letter-spacing;
+	margin: 0 0 @headings-margin-bottom;
+
+	a {
+		&, &:focus {color: @headings-color;}
+		&:hover, &:active {color: @link-color-hover;}
+	}
+}
+
+h1, .h1 {font-size: @font-size-h1;}
+h2, .h2 {font-size: @font-size-h2;}
+h3, .h3 {font-size: @font-size-h3;}
+h4, .h4 {font-size: @font-size-h4;}
+h5, .h5 {font-size: @font-size-h5;}
+h6, .h6 {font-size: @font-size-h6;}
+
+@media @md {
+	h1, .h1 {font-size: @font-size-h1 * .8;}
+	h2, .h2 {font-size: @font-size-h2 * .8;}
+	h3, .h3 {font-size: @font-size-h3 * .8;}
+	h4, .h4 {font-size: @font-size-h4 * .8;}
+	h5, .h5 {font-size: @font-size-h5 * .8;}
+	h6, .h6 {font-size: @font-size-h6 * .8;}
+}
+
+@media @sm {
+	h1, .h1 {font-size: 24px;}
+	h2, .h2 {font-size: 20px;}
+	h3, .h3 {font-size: 20px;}
+	h4, .h4 {font-size: 16px;}
+	h5, .h5 {font-size: 14px;}
+}
+
+@media @xs {
+	h1, .h1 {font-size: 20px;}
+	h2, .h2 {font-size: 18px;}
+	h3, .h3 {font-size: 16px;}
+	h4, .h4 {font-size: 14px;}
+}
+
+@media @xxs {
+	h1, .h1 {font-size: 18px;}
+	h2, .h2 {font-size: 16px;}
+}
+
+a {
+	outline: none;
+	color: @link-color;
+	.transition(color @transition-duration @transition-easing);
+
+	&:focus {
+		outline: none;
+		text-decoration: none;
+		color: @link-color;
+	}
+
+	&:hover, &:active {
+		color: @link-color-hover;
+		text-decoration: none;
+		outline: none;
+	}
+
+	&:active {background-color: transparent;}
+}
+
+a.link-underlined {text-decoration: underline;}
+
+em {font-style: italic;}
+strong {font-weight: 700;}
+small {font-size: 85%;}
+pre {border-radius: 0;}
+
+i {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	font-style: normal;
+}
+p {
+	line-height: @paragraph-line-height;
+	word-wrap: break-word;
+	margin-bottom: @paragraph-margin-bottom;
+}
+code {
+	padding: 2px 4px;
+	font-size: 90%;
+	.border-radius(0);
+}
+.lowercase {text-transform: lowercase;}
+.uppercase {text-transform: uppercase;}
+.notransform {text-transform: none !important;}
+.italic {font-style: italic !important;}
+.overflow-hidden {overflow: hidden !important;}
+
+.position-static {position: static !important;}
+.position-relative {position: relative !important;}
+.position-absolute {position: absolute !important;}
+.position-fixed {position: fixed !important;}
+
+.font-thin {font-weight: 100 !important;}
+.font-light {font-weight: 300 !important;}
+.font-normal {font-weight: 400 !important;}
+.font-medium {font-weight: 500 !important;}
+.font-semibold {font-weight: 600 !important;}
+.font-bold {font-weight: 700 !important;}
+
+.color-white {color: @color-white !important;}
+.color-black {color: @color-black !important;}
+.color-gray {color: @color-gray !important;}
+
+.no-padding {padding: 0 !important;}
+.no-padding-top {padding-top: 0 !important;}
+.no-padding-bottom {padding-bottom: 0 !important;}
+
+.text-md {font-size: @font-size !important;}
+.text-sm {font-size: @font-size-sm !important;}
+.text-xs {font-size: @font-size-xs !important;}
+
+.inline-block {display: inline-block;}
+
+.ellipsis {
+	.ellipsis();
+}
+
+// Generate Paddings
+
+@paddingMax: 200;
+
+.padding-generator(@index: 0) when (@index <= @paddingMax) {
+.padding-top-@{index} {padding-top: @index*1px !important;}
+.padding-bottom-@{index} {padding-bottom: @index*1px !important;}
+.padding-left-@{index} {padding-left: @index*1px !important;}
+.padding-right-@{index} {padding-right: @index*1px !important;}
+
+@media @md {
+	.padding-top-@{index} {padding-top: @index*.6px !important;}
+	.padding-bottom-@{index} {padding-bottom: @index*.6px !important;}
+	.padding-left-@{index} {padding-left: @index*.6px !important;}
+	.padding-right-@{index} {padding-right: @index*.6px !important;}
+}
+
+@media @xs {
+	.padding-top-@{index} {padding-top: @index*.4px !important;}
+	.padding-bottom-@{index} {padding-bottom: @index*.4px !important;}
+	.padding-left-@{index} {padding-left: @index*.4px !important;}
+	.padding-right-@{index} {padding-right: @index*.4px !important;}
+}
+
+	.padding-generator(@index + 10);
+}
+
+.padding-generator();
+
+// Generate Margins
+@marginMax: 200;
+
+.margin-generator(@index: 0) when (@index <= @marginMax) {
+.margin-top-@{index} {margin-top: @index*1px !important;}
+.margin-bottom-@{index} {margin-bottom: @index*1px !important;}
+.margin-left-@{index} {margin-left: @index*1px !important;}
+.margin-right-@{index} {margin-right: @index*1px !important;}
+
+@media @md {
+	.margin-top-@{index} {margin-top: @index*.6px !important;}
+	.margin-bottom-@{index} {margin-bottom: @index*.6px !important;}
+	.margin-left-@{index} {margin-left: @index*.6px !important;}
+	.margin-right-@{index} {margin-right: @index*.6px !important;}
+}
+
+@media @xs {
+	.margin-top-@{index} {margin-top: @index*.4px !important;}
+	.margin-bottom-@{index} {margin-bottom: @index*.4px !important;}
+	.margin-left-@{index} {margin-left: @index*.4px !important;}
+	.margin-right-@{index} {margin-right: @index*.4px !important;}
+}
+
+	.margin-generator(@index + 10);
+}
+
+.margin-generator();
+
+/* ScrollBar Width Detection */
+/*-----------------------------------*/
+
+.scrollbar-detect {
+	height: 0;
+	opacity: 0;
+	visibility: hidden;
+	overflow: scroll;
+	span {display: block;}
+}

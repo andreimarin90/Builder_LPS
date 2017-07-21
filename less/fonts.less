@@ -1,0 +1,94 @@
+@import "mixins";
+
+/* Custom Fonts */
+/*-----------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:500');
+
+@font-face {
+	font-family: 'MyriadPro';
+	src:url('@{fonts-path}/MyriadPro/MyriadProRegular.eot');
+	src:url('@{fonts-path}/MyriadPro/MyriadProRegular.eot?#iefix') format('embedded-opentype'),
+	url('@{fonts-path}/MyriadPro/MyriadProRegular.woff2') format('woff2'),
+	url('@{fonts-path}/MyriadPro/MyriadProRegular.woff') format('woff'),
+	url('@{fonts-path}/MyriadPro/MyriadProRegular.svg#MyriadProRegular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MyriadPro';
+	src:url('@{fonts-path}/MyriadPro/MyriadProItalic.eot');
+	src:url('@{fonts-path}/MyriadPro/MyriadProItalic.eot?#iefix') format('embedded-opentype'),
+	url('@{fonts-path}/MyriadPro/MyriadProItalic.woff2') format('woff2'),
+	url('@{fonts-path}/MyriadPro/MyriadProItalic.woff') format('woff'),
+	url('@{fonts-path}/MyriadPro/MyriadProItalic.svg#MyriadProItalic') format('svg');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'MyriadPro';
+	src:url('@{fonts-path}/MyriadPro/MyriadProSemibold.eot');
+	src:url('@{fonts-path}/MyriadPro/MyriadProSemibold.eot?#iefix') format('embedded-opentype'),
+	url('@{fonts-path}/MyriadPro/MyriadProSemibold.woff2') format('woff2'),
+	url('@{fonts-path}/MyriadPro/MyriadProSemibold.woff') format('woff'),
+	url('@{fonts-path}/MyriadPro/MyriadProSemibold.svg#MyriadProSemibold') format('svg');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MyriadPro';
+	src:url('@{fonts-path}/MyriadPro/MyriadProBold.eot');
+	src:url('@{fonts-path}/MyriadPro/MyriadProBold.eot?#iefix') format('embedded-opentype'),
+	url('@{fonts-path}/MyriadPro/MyriadProBold.woff2') format('woff2'),
+	url('@{fonts-path}/MyriadPro/MyriadProBold.woff') format('woff'),
+	url('@{fonts-path}/MyriadPro/MyriadProBold.svg#MyriadProBold') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* Font Icons */
+/*-----------------------------------*/
+
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+/*@font-face {
+	font-family: @iconic-font-name;
+	src:url('@{fonts-path}/@{iconic-font-name}/@{iconic-font-name}.eot');
+	src:url('@{fonts-path}/@{iconic-font-name}/@{iconic-font-name}.eot?#iefix') format('embedded-opentype'),
+	url('@{fonts-path}/@{iconic-font-name}/@{iconic-font-name}.ttf') format('truetype'),
+	url('@{fonts-path}/@{iconic-font-name}/@{iconic-font-name}.woff') format('woff'),
+	url('@{fonts-path}/@{iconic-font-name}/@{iconic-font-name}.svg#@{iconic-font-name}') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}*/
+
+.md-icon {
+	font-family: @iconic-font-name3;
+	text-rendering: optimizeLegibility;
+	font-feature-settings: "liga" 1;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*[class^="icon-"], [class*=" icon-"] {
+	font-family: @iconic-font-name;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}*/
+

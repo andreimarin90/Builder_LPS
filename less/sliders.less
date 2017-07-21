@@ -1,0 +1,592 @@
+@import "mixins";
+
+/* =========================================================================
+   Owl Slider Basics
+ =========================================================================== */
+
+.owl-carousel {
+	display: none;
+	position: relative;
+	width: 100%;
+	-ms-touch-action: pan-y;
+
+	.owl-wrapper-outer {
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+
+		&.autoHeight{
+			.transition(height .5s ease-in-out);
+		}
+	}
+
+	.owl-wrapper {
+		display: none;
+		position: relative;
+		-webkit-transform: translate3d(0px, 0px, 0px);
+		.clearfix();
+	}
+
+	.owl-item {
+		float: left;
+
+		&.loading {
+			min-height: 150px;
+			background: url('@{images-path}/AjaxLoader.gif') no-repeat center center;
+		}
+	}
+
+	.owl-controls {
+		text-align: center;
+		.user-select();
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+
+	.owl-prev,
+	.owl-next {
+		position: absolute;
+		top: 50%;
+		left: 50px;
+		text-align: center;
+		cursor: pointer;
+		background-color: transparent;
+		z-index: 2;
+		font-size: 40px;
+		color: @color-white;
+		margin-top: -20px;
+		opacity: 0;
+		:hover& {opacity: 1;}
+		.transition();
+
+		@media @sm {left: 10px;}
+
+		&:before {
+			/*content: '\e902';
+			.icon-font();*/
+		}
+
+		&:hover, &:active {color: @color-pink;}
+	}
+
+	.owl-next {
+		left: auto;
+		right: 50px;
+		@media @sm {right: 10px;}
+		&:before {content: '\e901';}
+	}
+
+	.owl-pagination {
+		position: absolute;
+		left: 50%;
+		bottom: 40px;
+		.transform(translateX(-50%));
+	}
+
+	.owl-page {
+		display: inline-block;
+		cursor: pointer;
+
+		span {
+			display: block;
+			.size(12px);
+			margin: 7px;
+			border: 2px solid @color-white;
+			.border-radius(50%);
+			background-color: transparent;
+			.transition();
+		}
+
+		&:hover span {
+			border-color: @color-pink;
+			background-color: @color-pink;
+		}
+
+		&.active span {
+			border-color: @color-pink;
+			background-color: @color-pink;
+		}
+
+		&.owl-numbers {
+			.size(auto);
+			color: @color-white;
+			padding: 2px 10px;
+			font-size: 12px;
+			.border-radius(30px);
+		}
+	}
+
+	.grabbing {
+		cursor:url('@{images-path}/grabbing.png') 8 8, move;
+	}
+
+	.owl-wrapper,
+	.owl-item {
+		.backface-visibility();
+		.transform(translate3d(0,0,0));
+	}
+}
+
+/* =========================================================================
+   Main Slider
+ =========================================================================== */
+
+.main-slider {
+	background-color: @color-dark;
+
+	.slider-item {
+		height: 100vh;
+		padding: 10% 0;
+		.background-size();
+		.display-flex();
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		@media @lg {padding: 90px 0 70px;}
+		@media @xs {padding: 70px 0;}
+
+		&:before {
+			content: '';
+			.absolute();
+			.gradient3points(fade(@color-dark, 90%), fade(@color-dark, 50%), 40%, fade(@color-dark, 30%));
+		}
+	}
+
+	.slider-item-inner {
+		max-width: 70%;
+		text-align: center;
+		position: relative;
+		@media @xs {max-width: 90%;}
+	}
+
+	.slider-title {
+		font-family: @font2;
+		font-size: 170px;
+		line-height: 1;
+		color: @color-white;
+		margin-bottom: .3em;
+		@media @lg {font-size: 130px;}
+		@media @md {font-size: 100px;}
+		@media @xs {font-size: 70px;}
+		@media @xxs {font-size: 50px;}
+	}
+
+	.slider-subtitle {
+		font-size: @font-size-h1;
+		font-weight: 300;
+		color: @color-white;
+		margin-bottom: 2em;
+		@media @lg {font-size: 32px;}
+		@media @md {font-size: 26px;}
+		@media @xs {font-size: 18px;}
+	}
+
+	.slider-buttons {
+		.mdl-button + .mdl-button {margin-left: 25px;}
+
+		@media @xxs {
+			.mdl-button {
+				display: block;
+				margin: 0 0 20px;
+				+ .mdl-button {margin-left: 0;}
+			}
+		}
+	}
+
+	.mouse {
+		.size(30px, 44px);
+		border: 2px solid @color-white;
+		border-radius: 15px;
+		font-size: 12px;
+		color: @color-white;
+		line-height: 38px;
+		text-align: center;
+		position: absolute;
+		left: 50%;
+		bottom: 60px;
+		z-index: 4;
+		margin-left: -15px;
+
+		i {
+			vertical-align: middle;
+			.animation(mouseBounce);
+		}
+	}
+}
+
+@-webkit-keyframes mouseBounce {
+	0%, 20%, 50%, 80%, 100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+
+	60% {
+		-webkit-transform: translateY(10px);
+		transform: translateY(10px);
+	}
+}
+
+@keyframes mouseBounce {
+	0%, 20%, 50%, 80%, 100% {
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-webkit-transform: translateY(-10px);
+		-ms-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+
+	60% {
+		-webkit-transform: translateY(10px);
+		-ms-transform: translateY(10px);
+		transform: translateY(10px);
+	}
+}
+
+/* =========================================================================
+   Post Slider
+ =========================================================================== */
+
+.post-slider {
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		height: 120px;
+		.gradient(transparent, fade(@color-black, 85%));
+	}
+
+	.owl-prev,
+	.owl-next {
+		top: auto;
+		left: 12px;
+		bottom: 18px;
+		z-index: 2;
+		font-size: 40px;
+		color: @color-white;
+		margin-top: -20px;
+		opacity: 1;
+
+		&:before {content: '\e908';}
+		&:hover, &:active {color: @color-pink;}
+	}
+
+	.owl-next {
+		left: auto;
+		right: 12px;
+		&:before {content: '\e90b';}
+	}
+}
+
+/* =========================================================================
+   Recipe Slider
+ =========================================================================== */
+
+.recipe-slider {
+	position: relative;
+	padding-bottom: 24px;
+
+	.owl-prev,
+	.owl-next {
+		top: auto;
+		left: 50%;
+		bottom: 0;
+		z-index: 2;
+		font-size: 18px;
+		color: @color-pink;
+		margin-top: 0;
+		margin-left: -26px;
+		opacity: 1;
+
+		&:before {
+			content: '\f053';
+			.fa-icon-font();
+		}
+
+		&:hover, &:active {color: @color-pink;}
+	}
+
+	.owl-next {
+		right: auto;
+		margin-left: 13px;
+		&:before {content: '\f054';}
+	}
+
+	.recipes {
+		li {
+			margin-bottom: 22px;
+		}
+
+		.recipe-title {
+			font-size: 18px;
+			font-weight: 500;
+			color: @color-dark;
+			margin-bottom: 14px;
+			position: relative;
+			@media @md {font-size: 16px;}
+
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 5px;
+				border-bottom: 2px dotted @color-dark;
+			}
+
+			span, em {
+				background-color: @body-background;
+				position: relative;
+				z-index: 1;
+				line-height: 24px;
+				padding-right: 5px;
+			}
+
+			em {
+				float: right;
+				height: 24px;
+				font-style: normal;
+				padding: 0 0 0 5px;
+			}
+		}
+
+		.recipe-description {
+			font-size: 15px;
+			font-style: italic;
+			color: @color-dark2;
+			line-height: 1.2;
+		}
+	}
+}
+
+/* =========================================================================
+   BS Slider Effects
+ =========================================================================== */
+
+// Fade Effect on BS Slider
+.fade-effect .item {
+	opacity: 0;
+	.transition(opacity .5s linear);
+	&.active {
+		opacity: 1;
+		&.left, &.right {
+			.transform(none);
+			left: 0;
+			z-index: 2;
+			opacity: 0;
+		}
+	}
+}
+
+// Shot Effect on BS Slider
+.shot-effect .item {
+	top: 0;
+	left: 0 !important;
+	.transition(top .5s cubic-bezier(0.95,0.1,0.25,1));
+
+	&.prev, &.next {
+		z-index: 3;
+		&.left, &.right {top: 0; .transform(none);}
+	}
+	&.prev {top: 100%;}
+	&.next {top: -100%;}
+}
+
+/* =========================================================================
+   Main Slider Style 2,3
+ =========================================================================== */
+
+.main-slider.style2,
+.main-slider.style3 {
+	.carousel-indicators {
+		position: absolute;
+		top: auto;
+		left: 15px;
+		right: 15px;
+		bottom: 40px;
+		width: auto;
+		padding: 0;
+		margin: 0;
+		text-align: center;
+
+		li {
+			display: inline-block;
+			.size(12px);
+			margin: 7px;
+			border: 2px solid @color-white;
+			border-radius: 50%;
+			background-color: transparent;
+			.transition();
+
+			&:hover, &:active, &.active {
+				border-color: @color-pink;
+				background-color: @color-pink;
+			}
+		}
+	}
+
+	.carousel-control {
+		position: absolute;
+		top: 50%;
+		left: 50px;
+		right: auto;
+		bottom: auto;
+		z-index: 4;
+		border: none;
+		width: auto;
+		.opacity(1);
+		font-weight: 400;
+		color: @color-white;
+		text-shadow: none;
+		text-align: center;
+		background-color: fade(@color-black, 20%);
+		font-size: 40px;
+		margin-top: -20px;
+		opacity: 0;
+		:hover& {opacity: 1;}
+		.transition();
+
+		@media @sm {left: 10px;}
+
+		&.left, &.right {
+			background: none;
+			filter: none;
+			border-radius: 0;
+		}
+
+		&.right {
+			left: auto;
+			right: 50px;
+			@media @sm {right: 10px;}
+			border-radius: 0;
+		}
+
+		&:hover, &:active {
+			&.left, &.right {
+				color: @color-pink;
+			}
+		}
+	}
+}
+
+/* =========================================================================
+   Main Slider Style 3
+ =========================================================================== */
+
+.main-slider.style3 {
+	.carousel-indicators {display: none;}
+
+	.slider-item {
+		background-position: center center;
+		&:before {background: fade(@color-dark, 55%);}
+	}
+
+	.slider-title {
+		font-size: 240px;
+		line-height: .8;
+		color: @color-pink;
+		margin-bottom: .1em;
+		@media @lg {font-size: 130px;}
+		@media @md {font-size: 100px;}
+		@media @xs {font-size: 70px;}
+		@media @xxs {font-size: 50px;}
+	}
+
+	.slider-subtitle {
+		font-size: @font-size-h0;
+		color: @color-lightGray;
+		margin-bottom: 2em;
+		@media @lg {font-size: @font-size-h3;}
+		@media @md {font-size: 26px;}
+		@media @xs {font-size: 18px;}
+	}
+}
+
+/* =========================================================================
+   Demos Slider
+ =========================================================================== */
+
+.demos-slider {
+	padding: 0 100px;
+	@media @sm {padding: 0 60px;}
+	@media @xs {padding: 0 50px;}
+
+	.owl-prev,
+	.owl-next {
+		opacity: 1;
+		color: @color-gray;
+		&:hover, &:active {color: @color-pink;}
+	}
+
+	.demo-item {
+		padding: 0 20px;
+		@media @xmd {padding: 0 10px;}
+	}
+
+	.item-title {
+		font-size: @font-size;
+		font-weight: 700;
+		color: @color-dark2;
+		text-align: center;
+		text-transform: uppercase;
+		@media @xs {font-size: 14px;}
+
+		a {
+			color: @color-dark2;
+			&:hover, &:active {color: @link-color;}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
