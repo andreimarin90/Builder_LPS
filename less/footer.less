@@ -3,97 +3,141 @@
 /* Footer */
 /*-----------------------------------*/
 
-.footer-top {
-	background-color: @color-dark4;
-	padding: 60px 0 80px;
-	position: relative;
-	@media @sm {padding: 30px 0 50px;}
-	@media @xxs {padding: 30px 0;}
+.footer {
+	background: url('@{images-path}/temp/bg-1.jpg');
+	.background-size();
+	padding: 75px 50px 20px;
+	@media @lg {padding: 75px 40px 20px;}
+	@media @md {padding: 50px 20px 20px;}
+	@media @sm {padding: 40px 20px 20px;}
+	@media @xs {padding: 30px 15px 20px;}
 
-	.site-description {
-		font-style: italic;
-		color: @color-gray3;
-		line-height: 1.9;
-		text-align: center;
-		max-width: 600px;
-		margin: 0 auto 34px;
+	.site-logo {
+		max-width: 200px;
+		margin-bottom: 20px;
+
+		@media @sm {
+			max-width: 140px;
+			margin-top: 6px;
+		}
+
+		@media @xs {display: inline-block;}
+	}
+
+	.footer-menu {
+		font-size: 0;
+		white-space: nowrap;
+		margin-bottom: 20px;
+
+		li {
+			display: inline-block;
+			vertical-align: top;
+			margin: 0 9px;
+			&:first-child {margin-left: 0;}
+			&:last-child {margin-right: 0;}
+			@media @md {margin: 0;}
+			@media @xs {display: block;}
+
+			a:not(.btn) {
+				position: relative;
+				display: block;
+				.ellipsis();
+				font-size: @font-size;
+				color: @color-white;
+				height: @button-height;
+				line-height: @button-height;
+				letter-spacing: .06em;
+				padding: 0 20px;
+				.transition();
+				@media @md {padding: 0 12px;}
+
+				@media @sm {
+					font-size: @font-size - 2;
+					padding: 0 6px;
+				}
+
+				@media @xs {
+					display: inline-block;
+					height: 26px;
+					line-height: 26px;
+				}
+
+				&:after {
+					content: '';
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					height: 2px;
+					.transition();
+				}
+
+				&:hover,
+				&:active {
+					&:after {background-color: @color-white;}
+				}
+			}
+
+			.btn {
+				padding: 0 @button-height/1.7;
+				margin-left: 20px;
+				@media @sm {margin-left: 10px;}
+				@media @xs {margin: 20px 0 0;}
+			}
+		}
+	}
+
+	.copyright {
+		font-size: @font-size - 2;
+		letter-spacing: .32em;
+		margin-bottom: 10px;
+		a {font-weight: 700;}
+
+		@media @xs {
+			font-size: 12px;
+			letter-spacing: .1em;
+			margin-top: 2px;
+		}
 	}
 
 	.footer-social {
 		font-size: 0;
-		text-align: center;
-		margin-bottom: 34px;
-		@media @xs {margin-bottom: 20px;}
+		margin-bottom: 10px;
 
 		li {
 			display: inline-block;
-			vertical-align: middle;
-			margin: 0 12px 12px;
+			margin-left: 10px;
+			&:first-child {margin-left: 0;}
 		}
 
 		a {
-			font-size: 20px;
-			color: @color-gray4;
-			&:hover, &:active {color: @color-pink;}
+			font-size: 16px;
+			color: fade(@color-white, 40%);
+			&:hover, &:active {color: @link-color;}
+		}
+	}
+}
+
+.footer-top {
+	border-bottom: 1px solid fade(@color-white, 10%);
+
+	@media @xs {
+		.pull-left,
+		.pull-right {
+			float: none !important;
+			text-align: center;
 		}
 	}
 }
 
 .footer-bottom {
-	background-color: @color-dark5;
-	padding: 20px 0;
+	padding-top: 12px;
 
-	.copyright {
-		font-size: 13px;
-		font-weight: 500;
-		color: @color-gray3;
-		line-height: 1.8;
-
-		@media @xs {
-			font-size: 12px;
+	@media @xxs {
+		.pull-left,
+		.pull-right {
+			float: none !important;
 			text-align: center;
-			margin-bottom: 15px;
-		}
-
-		a {
-			color: @color-gray3;
-			&:hover, &:active {color: @color-pink;}
-		}
-	}
-
-	.footer-menu {
-		font-size: 0;
-		text-align: right;
-		@media @xs {text-align: center;}
-
-		li {
-			display: inline-block;
-			vertical-align: middle;
-			font-size: 13px;
-			font-weight: 500;
-			color: @color-gray3;
-			line-height: 1.8;
-			text-transform: uppercase;
-			padding-right: 10px;
-			position: relative;
-
-			&:after {
-				content: '|';
-				display: inline-block;
-				margin-left: 10px;
-				position: relative;
-				top: -1px;
-			}
-
-			&:last-child {
-				padding-right: 0;
-				&:after {display: none;}
-			}
-		}
-
-		a {
-			color: @color-gray3;
-			&:hover, &:active {color: @color-pink;}
 		}
 	}
 }

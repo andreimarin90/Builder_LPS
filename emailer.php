@@ -87,58 +87,44 @@
 
 	<!-- Footer -->
 	<footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
-		<div class="footer-top clearfix">
-			<div class="container">
-				<div class="site-logo"><a href="emailer.php">Le Cuisine</a></div>
-
-				<div class="site-description">
-					Le Cuisine is much more than just a food blog. It’s also a great place to share recipes, connect with other cooks, learn new culinary skills,
-					and most of all … have some fun! It’s also a great theme for restaurants, bistros and bars.
+		<div class="footer-top">
+			<div class="clearfix">
+				<div class="pull-left">
+					<div class="site-logo"><a href="#"><img src="images/logo.png" alt=""/></a></div>
 				</div>
 
-				<ul class="footer-social">
-					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-					<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-					<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-					<li><a href="#"><i class="fa fa-rss"></i></a></li>
-				</ul>
-
-				<!-- Widget Subscribe -->
-				<div class="footer-widget widget-subscribe">
-					<h4 class="widget-title">Get our newsletter</h4>
-
-					<div class="widget-content">
-						<form class="mc4wp-form" method="post">
-							<div class="mc4wp-form-fields">
-								<input class="form-control" type="email" name="EMAIL" placeholder="Your email address" required />
-								<button class="form-submit" type="submit"><i class="fa fa-envelope-o"></i></button>
-							</div>
-						</form>
-					</div>
+				<div class="pull-right">
+					<ul class="footer-menu">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Why BBT Builder</a></li>
+						<li><a href="#">Templates</a></li>
+						<li><a href="#">Portfolio</a></li>
+						<li><a href="#">Profile</a></li>
+						<li><a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-white btn-transparent">get support</a></li>
+					</ul>
 				</div>
-				<!--/ Widget Subscribe -->
 			</div>
-
-			<a href="#" class="back-to-top anchor"><i class="icon-arrow-up3"></i></a>
 		</div>
 
 		<div class="footer-bottom">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="copyright">Copyright &copy; 2016-17 Bon Appetit  |  A Stylish Culinary Journal. All rights reserved.</div>
-					</div>
+			<div class="clearfix">
+				<div class="pull-right">
+					<ul class="footer-social">
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-behance"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+						<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+					</ul>
+				</div>
 
-					<div class="col-sm-6">
-						<ul class="footer-menu">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Journal</a></li>
-							<li><a href="#">Recipes</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Pages</a></li>
-							<li><a href="#">Contact</a></li>
-						</ul>
+				<div class="pull-left">
+					<div class="copyright">
+						<span style="color: #fb5025;">made</span>
+						<span style="color: #7fba00;">with</span>
+						<span style="color: #ff4181;">love</span>
+						<span style="color: #01a5ed;">by</span>
+						<a style="color: #ffb901;" href="http://bigbangthemes.net/">bigbangthemes</a>
 					</div>
 				</div>
 			</div>
