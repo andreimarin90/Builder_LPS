@@ -30,10 +30,7 @@ jQuery(function($) {
 			this.videoPlayerRatio(); // Video Player Ratio
 
 			this.dropDownMenu(); // Dropdown Menu in Header
-			this.stickySideBar(); // Sticky SideBar
-			this.lastItemLabel('.post-meta'); // Post Meta First Item
 			this.parallaxInit(); // Parallax
-			this.lightBox(); // LightBox (swipeBox)
 			this.owlSlidersInit(); // Owl Carousels
 
 			//this.screenResInfo(); // Screen Resolution Info for Developers
@@ -148,29 +145,6 @@ jQuery(function($) {
 			});
 		},
 
-		stickySideBar : function() {
-			$('.sidebar-sticky').each(function() {
-				var sidebar = $(this);
-
-				$window.on('resized', function() {
-					if($window.width() > 767 - scrollBarWidth) {
-						sidebar.stick_in_parent({
-							offset_top: 120
-						});
-					} else {
-						sidebar.trigger('sticky_kit:detach');
-					}
-				});
-			});
-		},
-
-		lastItemLabel : function(selector) {
-			$(selector).each(function() {
-				$(this).children().eq(0).addClass('first');
-				$(this).children().eq(-1).addClass('last');
-			});
-		},
-
 		parallaxInit : function() {
 			$.fn.parallax = function() {
 				var parallax = $(this),
@@ -222,13 +196,6 @@ jQuery(function($) {
 
 			$('.parallax').each(function () {
 				$(this).parallax();
-			});
-		},
-
-		lightBox : function() {
-			$('.swipebox, .swipebox-video').swipebox({
-				removeBarsOnMobile: false,
-				autoplayVideos: true
 			});
 		},
 

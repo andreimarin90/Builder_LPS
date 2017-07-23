@@ -353,9 +353,6 @@
 	<!-- Placeholders -->
 	<script src="js/jquery.powerful-placeholder.min.js"></script>
 
-	<!-- LightBox -->
-	<script src="js/jquery.swipebox.min.js"></script>
-
 	<!-- Owl Slider -->
 	<script src="js/owl.carousel.js"></script>
 
@@ -364,9 +361,6 @@
 
 	<!-- TouchSwipe -->
 	<script src="js/jquery.touchSwipe.min.js"></script>
-
-	<!-- StickyKit -->
-	<script src="js/jquery.sticky-kit.min.js"></script>
 
 	<!-- Material Design -->
 	<script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
