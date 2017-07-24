@@ -1,26 +1,40 @@
 <!DOCTYPE html>
-<!--[if lt IE 9 ]><html lang="en" class="no-js oldie"><![endif]-->
-<!--[if IE 9 ]><html lang="en" class="no-js ie9"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
+<html <?php language_attributes(); ?>>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>eBuilder Landing Page</title>
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-
-	<!-- Material Design -->
-	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue-indigo.min.css">
-
-	<!-- Core CSS -->
-	<link href="css/helpers.css" media="screen" rel="stylesheet" type="text/css">
-	<link href="css/bbt.css" media="screen" rel="stylesheet" type="text/css">
-
-	<!-- Modernizr Library -->
-	<script src="js/libs/modernizr.min.js"></script>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- Pingbacks -->
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+    <?php do_action( 'toco_ckeck' ); ?>
+    <?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {
+        if(toco_go('favicon')): ?>
+            <link rel="shortcut icon" href="<?php echo esc_url(toco_go('favicon')); ?>">
+        <?php endif;
+        if(toco_go('favicon_iphone')): ?>
+            <link rel="apple-touch-icon" sizes="60x60" href="<?php echo esc_url(toco_go('favicon_iphone')); ?>" />
+        <?php endif;
+        if(toco_go('favicon_iphone_retina')): ?>
+            <link rel="apple-touch-icon" sizes="120x120" href="<?php echo esc_url(toco_go('favicon_iphone_retina')); ?>" />
+        <?php endif;
+        if(toco_go('favicon_ipad')): ?>
+            <link rel="apple-touch-icon" sizes="76x76" href="<?php echo esc_url(toco_go('favicon_ipad')); ?>" />
+        <?php endif;
+        if(toco_go('favicon_ipad_retina')): ?>
+            <link rel="apple-touch-icon" sizes="152x152" href="<?php echo esc_url(toco_go('favicon_ipad_retina')); ?>" />
+        <?php endif;
+    } ?>
+    <?php wp_head(); ?>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
+<body <?php body_class('landing-page')?>>
+
+<?php 
+
+/*
+Template Name: Landing
+*/ 
+?>
 
 	<!-- Header -->
 	<header class="header transparent" itemscope itemtype="http://schema.org/WPHeader">
@@ -345,29 +359,6 @@
 	<!--/ Footer -->
 
 	<!-- JS Section -->
-
-	<!-- Libs -->
-	<script src="js/libs/jquery-1.12.3.min.js"></script>
-	<script src="js/libs/bootstrap.min.js"></script>
-
-	<!-- Placeholders -->
-	<script src="js/jquery.powerful-placeholder.min.js"></script>
-
-	<!-- Owl Slider -->
-	<script src="js/owl.carousel.js"></script>
-
-	<!-- MouseWheel -->
-	<script src="js/jquery.mousewheel.min.js"></script>
-
-	<!-- TouchSwipe -->
-	<script src="js/jquery.touchSwipe.min.js"></script>
-
-	<!-- Material Design -->
-	<script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-
-	<!-- General Scripts -->
-	<script src="js/bbt.navigation1.js"></script>
-	<script src="js/bbt.js"></script>
 
 </body>
 </html>
