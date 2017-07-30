@@ -1,5 +1,59 @@
-<?php include('includes/head.php'); ?>
-<?php include('includes/header.php'); ?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- Pingbacks -->
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+    <?php do_action( 'toco_ckeck' ); ?>
+    <?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {
+        if(toco_go('favicon')): ?>
+            <link rel="shortcut icon" href="<?php echo esc_url(toco_go('favicon')); ?>">
+        <?php endif;
+        if(toco_go('favicon_iphone')): ?>
+            <link rel="apple-touch-icon" sizes="60x60" href="<?php echo esc_url(toco_go('favicon_iphone')); ?>" />
+        <?php endif;
+        if(toco_go('favicon_iphone_retina')): ?>
+            <link rel="apple-touch-icon" sizes="120x120" href="<?php echo esc_url(toco_go('favicon_iphone_retina')); ?>" />
+        <?php endif;
+        if(toco_go('favicon_ipad')): ?>
+            <link rel="apple-touch-icon" sizes="76x76" href="<?php echo esc_url(toco_go('favicon_ipad')); ?>" />
+        <?php endif;
+        if(toco_go('favicon_ipad_retina')): ?>
+            <link rel="apple-touch-icon" sizes="152x152" href="<?php echo esc_url(toco_go('favicon_ipad_retina')); ?>" />
+        <?php endif;
+    } ?>
+    <?php wp_head(); ?>
+</head>
+
+<body <?php body_class('landing-page')?>>
+
+<?php 
+
+/*
+Template Name: Landing
+*/ 
+?>
+
+	<!-- Header -->
+	<header class="header transparent" itemscope itemtype="http://schema.org/WPHeader">
+		<div class="header-flex">
+			<div class="site-logo"><a href="#"><img src="images/logo.png" alt=""/></a></div>
+
+			<ul class="main-menu">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Why BBT Builder</a></li>
+				<li><a href="#">Templates</a></li>
+				<li><a href="#">Portfolio</a></li>
+				<li><a href="#">Profile</a></li>
+				<li><a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-white btn-transparent">get started</a></li>
+			</ul>
+
+			<div class="main-menu-link"><a href="#"></a></div>
+		</div>
+	</header>
+	<!--/ Header -->
 
 	<!-- Main Banner -->
 	<div class="main-header" style="background-image: url(images/temp/bg-1.jpg);">
@@ -257,5 +311,54 @@
 	</section>
 	<!--/ Section Testimonials -->
 
-<?php include('includes/footer.php'); ?>
-<?php include('includes/scripts.php'); ?>
+	<!-- Footer -->
+	<footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+		<div class="footer-top">
+			<div class="clearfix">
+				<div class="pull-left">
+					<div class="site-logo"><a href="#"><img src="images/logo.png" alt=""/></a></div>
+				</div>
+
+				<div class="pull-right">
+					<ul class="footer-menu">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Why BBT Builder</a></li>
+						<li><a href="#">Templates</a></li>
+						<li><a href="#">Portfolio</a></li>
+						<li><a href="#">Profile</a></li>
+						<li><a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-white btn-transparent">get support</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="clearfix">
+				<div class="pull-right">
+					<ul class="footer-social">
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-behance"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+						<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+					</ul>
+				</div>
+
+				<div class="pull-left">
+					<div class="copyright">
+						<span style="color: #fb5025;">made</span>
+						<span style="color: #7fba00;">with</span>
+						<span style="color: #ff4181;">love</span>
+						<span style="color: #01a5ed;">by</span>
+						<a style="color: #ffb901;" href="http://bigbangthemes.net/">bigbangthemes</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--/ Footer -->
+
+	<!-- JS Section -->
+
+</body>
+</html>
