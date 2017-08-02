@@ -6,24 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <!-- Pingbacks -->
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-    <?php do_action( 'toco_ckeck' ); ?>
-    <?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {
-        if(toco_go('favicon')): ?>
-            <link rel="shortcut icon" href="<?php echo esc_url(toco_go('favicon')); ?>">
-        <?php endif;
-        if(toco_go('favicon_iphone')): ?>
-            <link rel="apple-touch-icon" sizes="60x60" href="<?php echo esc_url(toco_go('favicon_iphone')); ?>" />
-        <?php endif;
-        if(toco_go('favicon_iphone_retina')): ?>
-            <link rel="apple-touch-icon" sizes="120x120" href="<?php echo esc_url(toco_go('favicon_iphone_retina')); ?>" />
-        <?php endif;
-        if(toco_go('favicon_ipad')): ?>
-            <link rel="apple-touch-icon" sizes="76x76" href="<?php echo esc_url(toco_go('favicon_ipad')); ?>" />
-        <?php endif;
-        if(toco_go('favicon_ipad_retina')): ?>
-            <link rel="apple-touch-icon" sizes="152x152" href="<?php echo esc_url(toco_go('favicon_ipad_retina')); ?>" />
-        <?php endif;
-    } ?>
     <?php wp_head(); ?>
 </head>
 
@@ -32,14 +14,14 @@
 <?php 
 
 /*
-Template Name: Landing
+Template Name: Emailer Landing
 */ 
 ?>
 
 	<!-- Header -->
 	<header class="header transparent" itemscope itemtype="http://schema.org/WPHeader">
 		<div class="header-flex">
-			<div class="site-logo"><a href="#"><img src="images/logo.png" alt=""/></a></div>
+			<div class="site-logo"><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt=""/></a></div>
 
 			<ul class="main-menu">
 				<li><a href="#">Home</a></li>
@@ -56,7 +38,7 @@ Template Name: Landing
 	<!--/ Header -->
 
 	<!-- Main Banner -->
-	<div class="main-header" style="background-image: url(images/temp/bg-1.jpg);">
+	<div class="main-header" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/temp/bg-1.jpg);">
 		<div class="header-inner">
 			<div class="header-pre-title"><span>THE BEST IN THE INDUSTRY</span></div>
 			<h1 class="header-title">Drag&Drop Email Builder</h1>
@@ -85,7 +67,7 @@ Template Name: Landing
 		</div>
 
 		<div class="section-content clearfix">
-			<img class="image" src="images/temp/section-1.png" alt=""/>
+			<img class="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/temp/section-1.png" alt=""/>
 
 			<ul class="features">
 				<li>
@@ -145,9 +127,9 @@ Template Name: Landing
 	<!--/ Section Features -->
 
 	<!-- Section Buy -->
-	<section class="section section-buy" style="background-image: url(images/temp/bg-2.jpg);">
+	<section class="section section-buy" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/temp/bg-2.jpg);">
 		<div class="section-content clearfix">
-			<img class="image" src="images/temp/section-2.png" alt=""/>
+			<img class="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/temp/section-2.png" alt=""/>
 
 			<div class="column-right">
 				<div class="section-header">
@@ -176,7 +158,7 @@ Template Name: Landing
 	<!--/ Section Buy -->
 
 	<!-- Section CTA -->
-	<section class="section section-cta" style="background-image: url(images/temp/bg-1.jpg);">
+	<section class="section section-cta" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/temp/bg-1.jpg);">
 		<div class="section-header">
 			<h1 class="section-title">Extremely Easy To Use</h1>
 
@@ -220,7 +202,7 @@ Template Name: Landing
 						</div>
 
 						<div class="testimonial-author">
-							<div class="avatar"><img src="images/avatar.png" alt=""/></div>
+							<div class="avatar"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/avatar.png" alt=""/></div>
 							<div class="author">greglion</div>
 							<div class="job">Art Gallery Owner</div>
 						</div>
@@ -233,7 +215,7 @@ Template Name: Landing
 						</div>
 
 						<div class="testimonial-author">
-							<div class="avatar"><img src="images/avatar.png" alt=""/></div>
+							<div class="avatar"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/avatar.png" alt=""/></div>
 							<div class="author">annakarana</div>
 							<div class="job">themeforest user</div>
 						</div>
@@ -246,7 +228,7 @@ Template Name: Landing
 						</div>
 
 						<div class="testimonial-author">
-							<div class="avatar"><img src="images/avatar.png" alt=""/></div>
+							<div class="avatar"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/avatar.png" alt=""/></div>
 							<div class="author">judsonvoss</div>
 							<div class="job">themeforest user</div>
 						</div>
@@ -259,7 +241,7 @@ Template Name: Landing
 						</div>
 
 						<div class="testimonial-author">
-							<div class="avatar"><img src="images/avatar.png" alt=""/></div>
+							<div class="avatar"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/avatar.png" alt=""/></div>
 							<div class="author">spsachos</div>
 							<div class="job">themeforest user</div>
 						</div>
@@ -272,7 +254,7 @@ Template Name: Landing
 						</div>
 
 						<div class="testimonial-author">
-							<div class="avatar"><img src="images/avatar.png" alt=""/></div>
+							<div class="avatar"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/avatar.png" alt=""/></div>
 							<div class="author">evrsmileinc</div>
 							<div class="job">themeforest user</div>
 						</div>
@@ -285,7 +267,7 @@ Template Name: Landing
 						</div>
 
 						<div class="testimonial-author">
-							<div class="avatar"><img src="images/avatar.png" alt=""/></div>
+							<div class="avatar"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/avatar.png" alt=""/></div>
 							<div class="author">JimOQuinn</div>
 							<div class="job">themeforest user</div>
 						</div>
@@ -298,7 +280,7 @@ Template Name: Landing
 						</div>
 
 						<div class="testimonial-author">
-							<div class="avatar"><img src="images/avatar.png" alt=""/></div>
+							<div class="avatar"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/avatar.png" alt=""/></div>
 							<div class="author">colorfulwebdesign</div>
 							<div class="job">themeforest user</div>
 						</div>
@@ -306,7 +288,7 @@ Template Name: Landing
 				</div>
 			</div>
 
-			<img class="image" src="images/temp/section-3.png" alt=""/>
+			<img class="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/temp/section-3.png" alt=""/>
 		</div>
 	</section>
 	<!--/ Section Testimonials -->
@@ -316,7 +298,7 @@ Template Name: Landing
 		<div class="footer-top">
 			<div class="clearfix">
 				<div class="pull-left">
-					<div class="site-logo"><a href="#"><img src="images/logo.png" alt=""/></a></div>
+					<div class="site-logo"><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt=""/></a></div>
 				</div>
 
 				<div class="pull-right">
@@ -359,6 +341,10 @@ Template Name: Landing
 	<!--/ Footer -->
 
 	<!-- JS Section -->
+
+    <?php wp_footer( );?>
+
+
 
 </body>
 </html>
