@@ -4,7 +4,7 @@
 add_action( 'wp_enqueue_scripts', 'builder_lp_child_scripts' );
 function builder_lp_child_scripts(){
 	
-	if(is_page_template('emailer.php')) {
+	if(is_page_template('emailer.php') || is_page_template('free-dd.php')) {
 	//Smooth Scroll
 	wp_enqueue_script('child-modernizr', get_stylesheet_directory_uri() . '/js/libs/modernizr.min.js', array('jquery'), null, true);
 
@@ -29,7 +29,7 @@ function builder_lp_child_scripts(){
 
 add_action( 'wp_print_scripts', 'bbt_deregister_unneeded_scripts', 15 );
 function bbt_deregister_unneeded_scripts() {
-    if(is_page_template('emailer.php')){
+    if(is_page_template('emailer.php') || is_page_template('free-dd.php')){
         wp_dequeue_script( 'contact-form-7' );
         wp_dequeue_script( 'jquery-blockui' );
 		wp_dequeue_script( 'wc-js-cookie' );
@@ -41,7 +41,7 @@ function bbt_deregister_unneeded_scripts() {
 
 add_action( 'wp_print_styles', 'bbt_deregister_styles', 100 );
 function bbt_deregister_styles() {
-	if(is_page_template('emailer.php')){
+	if(is_page_template('emailer.php') || is_page_template('free-dd.php')){
 		wp_dequeue_style( 'woocommerce-layout' );
 		wp_dequeue_style( 'woocommerce-smallscreen' );
 		wp_dequeue_style( 'woocommerce-general' );
@@ -63,6 +63,8 @@ function set_private_categories($post_id) {
 	
 	//die();
 }
+
+
 //add_action( 'save_post', 'set_private_categories' );
 
 // if(is_page_template('emailer.php')) {

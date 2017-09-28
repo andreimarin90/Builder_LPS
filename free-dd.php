@@ -1,11 +1,32 @@
-<?php include('includes/head.php'); ?>
-<?php include('includes/header.php'); ?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- Pingbacks -->
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+
+    <title>BBT Email builder - build free email templates & export free newsletter html</title>
+    <?php wp_head(); ?>
+</head>
+
+<body <?php body_class('free-dd-page')?>>
+
+<?php 
+
+/*
+Template Name: Free D&D Landing
+*/ 
+?>
+
+	<?php require_once('theme_includes/header_nav.php'); ?>
 
 	<!-- Main Banner -->
-	<div class="main-header" style="background-image: url(images/temp/bg-1.jpg);">
+	<div class="main-header" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/temp/bg-1.jpg);">
 		<div class="header-inner">
-			<div class="header-pre-title"><span>FOREVER FREE template builder</span></div>
-			<h1 class="header-title">FREE Drag&Drop Email Builder</h1>
+			<div class="header-pre-title"><span>FOREVER FREE newsletter builder</span></div>
+			<h1 class="header-title">FREE Drag & Drop Email Builder</h1>
 		</div>
 	</div>
 	<!--/ Main Banner -->
@@ -15,76 +36,56 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
-					<h2 class="post-title">Amazing Features Blog Posts About Email Growth</h2>
+					<h2 class="post-title">Build more creative Email campaigns with our free newsletter builder.</h2>
 
 					<p class="first-letter">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo arcu, hendrerit quis pharetra id, condime
-						in erat. Quisque dignissim nisl nec placerat fringilla. Integer at dignissim tortor. Maecenas ornare ut metus
-						isque ultricies. Etiam non posuere justo, vitae lobortis ligula. Suspendisse mattis viverra diam in commodo.
-						Sed egestas mauris vel massa tincidunt, vel mollis lectus aliquam. Curabitur a feugiat metus.
+						Happy to present you with one of the best opportunities you can find online. For the first time ever you now have a top quality free email creator tool you can use <strong>forever</strong>. Yep, you read that right...it's going to be available for free forever.
+						Your email marketing campaigns will never have to be cumbersome again, as of now, creating email templates and then exporting them in cross-client compatible HTML code is now easier than ever before. Just drag and drop your favorite modules, edit text, code, images and colors, and really brand your template's design.
 					</p>
 
 					<p>
-						Donec placerat turpis nulla, vel pharetra purus sodales at. Aliquam maximus ex et cursus mattis. Vestibulum a congue nisl.
-						Donec semper ultricies orci sit amet auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id orci commodo,
-						porta metus id, feugiat libero. Duis tincidunt quis metus vitae auctor.
+						One of the most important things for us here at BigBangThemes is to give back to the community which has helped us grow in such a remarkable way. 
+						This is the main reason why we decided that offering a <strong>"Free Forever"</strong> plan for our html email builder is the best way to go. 
+						The rules to using the free version are extremely simple and straight forward. Help us spread the word about our amazing free tool by sharing 
+						the news with your <strong>Facebook</strong> or <strong>Twitter</strong> friends,
+						and you'll be able to create free email template designs and <strong>export</strong> them for an <strong>unlimited</strong> number of times. 
 					</p>
 
-					<p>
-						Phasellus ut iaculis sapien, quis blandit felis. Nullam a tortor feugiat, auctor nunc a, commodo diam. Aliquam erat volutpat.
-						Integer varius pharetra leo at sollicitudin. Donec at ipsum sit amet dolor accumsan aliquet. Pellentesque habitant morbi tristique
-						senectus et netus et malesuada fames ac turpis egestas. Morbi pharetra tortor et lobortis hendrerit. Nunc vel tincidunt nulla,
-						et accumsan dui. Nulla est dolor, mollis ut neque ac, consectetur feugiat metus. Nunc rhoncus, odio a semper imperdiet,
-						nisi lacus vehicula nisl, vitae semper libero lectus in eros. Quisque sodales pellentesque tellus, nec scelerisque magna iaculis sed.
-						Fusce congue dapibus dolor, ac sodales nulla facilisis quis. Ut volutpat, ligula vel porta porta, risus ex finibus magna, sit amet
-						efficitur justo tellus non purus. Fusce ultricies cursus nibh eget ullamcorper.
-					</p>
-
-					<p>
-						Sed sem felis, laoreet at leo in, tempus sodales felis. Duis venenatis justo ut nibh iaculis, at malesuada risus dapibus.
-						Duis ornare ut tortor et feugiat. Donec egestas risus magna, a tincidunt dolor laoreet ac. Phasellus sed fringilla orci.
-						Nunc vehicula euismod felis, ac cursus tellus efficitur pellentesque. Integer pellentesque nulla massa, ut congue justo laoreet ut.
-						Praesent dapibus iaculis dignissim. Ut ut ultricies sem. Praesent pulvinar magna sed est pellentesque semper. Ut sed mauris a ligula
-						tristique tincidunt non eget justo. Nam luctus, nibh id iaculis aliquam, elit libero
-					</p>
-
-					<div class="blockquote">
-						<blockquote>
-							Morbi congue sem felis, non luctus diam molestie sit amet. Suspendisse potenti. Nullam eu velit ut velit porta tempor ut id nibh.
-							Sed pharetra mi id rhoncus commodo. Maecenas feugiat varius metus, nec luctus nunc condimentum a. Quisque blandit lacus dui.
-						</blockquote>
-
-						<span>Andrei marin - bIG BANG THEMES</span>
+					<div class="section-buttons text-center margin-bottom-40">
+						<a href="http://bigbangthemes.net/BBT_Builder/template/kahuna/?v=free_light_version&utm_source=referral&utm_medium=free-dd-page&utm_campaign=main-button" rel="nofollow" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">Start Building Now</a>
 					</div>
 
 					<p>
-						Donec at ipsum sit amet dolor accumsan aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuT fames
-						ac turpis egestas. Morbi pharetra tortor et lobortis hendrerit. Nunc vel tincidunt nulla, et accumsan dui. Nulla est dolor,
-						mollis ut neque ac, consectetur feugiat metus. Nunc rhoncus, odio a semper imperdiet, nisi lacus vehicula nisl, vitae semper
-						libero lectus in eros. Quisque sodales pellentesque tellus, nec scelerisque magna iaculis sed. Fusce congue dapibus dolor,
-						ac sodales nulla facilisis quis. Ut volutpat, ligula vel porta porta, risus ex finibus magna, sitera amet efficitur justo
-						tellus non purus. Fusce ultricies cursus nibh eget ullamcorper.
+						We knew that the challenge we faced was not a small one by any means. We wanted to make sure that we create a solution that's built on feedback we
+						gathered from <strong>over 9500 clients</strong> who have chosen the BigBangThemes builder in the 4 years that have passed since we started. We also knew that we needed a way to 
+						bullet proof our free email drag & drop builder from bots or black-hat techniques which would end up clogging the system up for our paying customers.
+						Thankfully the idea we were able to come up with was a perfect mix of making the builder safe for our clients, and help spread the word about it at same time. 
+						The concept is that since this is completely free to use, we want to make sure we're able to help it reach as many online people as possible. 
 					</p>
 
-					<p>
-						Nam semper tellus diam, vitae semper nisi hendrerit ac. Maecenas pharetra erat purus, at fringilla nunc imperdietop quis.
-						Curabitur efficitur pharetra gravida. Praesent vestibulum malesuada risurs, quis laorewwret mauris posuere eu.
-						Suspendisse rutrum sem placerat, hendrerit nunc in, posuere ante. Etiam et sollicitudin ante. Aliquam eget nulla in justo
-						auctor faucibus ac et lectus. Morbi eu congue elit. Aliquam aliquet mauris at augue eleifend consectetur. Duis vitae laoreet augue,
-						eget consequat dui. Pellentesque felis elit, aliquet ut tincidunt vel, sagittis at augue. In aliquet pellentesque placerat.
-					</p>
+					<p>Work has barely just begun, we're going to continue workign hard at creating more and more free email templates and they will be published on this page as soon as more are available for use. We're constantly trying to improve so we welcome feedback, however please understand that we cannot offer support for the free version of the builder, and only paying clients will be able to receive client support.</p>
+
+					<div class="blockquote">
+						<blockquote>
+ 							One of our favorite quotes reads "Success in life is making the most number of people's lives better".  							
+ 							It helps us feel a sense of purpose, and that's what we're trying to do here at BigBangThemes. 							
+ 							The 'free forever' program is our way of giving back to the community which has helped us achieve so much in so little time. 						
+						</blockquote>
+
+						<span>Andy M. - BIG BANG THEMES CEO</span>
+					</div>
+
+					<p>We hope you're loving our free newsletter, and we're looking forward to feedback like always, so if there's anything we still need to work on, please don't hesitate to reach out and let us know. We've invested a lot of love into this project so we hope that you'll be able to use it to its fullest and trully improve your marketing efforts.</p>
 
 					<div class="post-footer">
 						<div class="row">
 							<div class="col-xs-9">
 								<!-- Tags -->
 								<div class="post-taglist">
-									<a href="#">builder</a>
-									<a href="#">email</a>
-									<a href="#">marketing</a>
-									<a href="#">email marketing</a>
-									<a href="#">wordpress</a>
-									<a href="#">website</a>
+									<a>free email templates</a>
+									<a>email builder free</a>
+									<a>html email builder</a>
+									<a>free newsletter template</a>
 								</div>
 								<!--/ Tags -->
 							</div>
@@ -96,8 +97,8 @@
 										<a href="#"><i class="fa fa-share-alt"></i></a>
 
 										<ul>
-											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+											<li><a target="_blank" href="<?php printf( '//twitter.com/share?text=%2$s&url=%1$s&via=%3$s', 'https%3A%2F%2Fbigbangthemes.net%2FBBT_Builder%2Ffree-drag-drop-email-builder%2F','Build Emails with the BigBangThemes Free Drag and Drop Email Builder', 'Big_Bang_Themes' )?>"><i class="fa fa-twitter"></i></a></li>
+											<li><a target="_blank" href="//www.facebook.com/sharer.php?u=https%3A%2F%2Fbigbangthemes.net%2FBBT_Builder%2Ffree-drag-drop-email-builder%2F&t=Build Emails with the BigBangThemes Free Drag and Drop Email Builder @BigBangThemes"><i class="fa fa-facebook"></i></a></li>
 										</ul>
 									</div>
 									<!--/ Social Share Buttons -->
@@ -111,5 +112,19 @@
 	</section>
 	<!--/ Section Post -->
 
-<?php include('includes/footer.php'); ?>
-<?php include('includes/scripts.php'); ?>
+	<?php get_footer(); ?>
+
+	<!-- JS Section -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-37394656-14', 'auto');
+    ga('send', 'pageview');
+
+</script>
+    <?php wp_footer( );?>
+</body>
+</html>

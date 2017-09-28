@@ -7,6 +7,10 @@
     <!-- Pingbacks -->
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
     <?php wp_head(); ?>
+
+    <meta property="og:title" content="Emailer - Drag & Drop Email Builder" />
+	<meta property="og:url" content="http://bigbangthemes.net/BBT_Builder/drag-drop-email-template/" />
+	<meta property="og:image" content="http://themes.scsnoopyindustri.netdna-cdn.com/BBT_Builder/wp-content/themes/bbt_builder_theme/images/logo.png" />
 </head>
 
 <body <?php body_class('landing-page')?>>
@@ -18,24 +22,7 @@ Template Name: Emailer Landing
 */ 
 ?>
 
-	<!-- Header -->
-	<header class="header transparent" itemscope itemtype="http://schema.org/WPHeader">
-		<div class="header-flex">
-			<div class="site-logo"><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt=""/></a></div>
-
-			<ul class="main-menu">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Why BBT Builder</a></li>
-				<li><a href="#">Templates</a></li>
-				<li><a href="#">Portfolio</a></li>
-				<li><a href="#">Profile</a></li>
-				<li><a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-white btn-transparent">get started</a></li>
-			</ul>
-
-			<div class="main-menu-link"><a href="#"></a></div>
-		</div>
-	</header>
-	<!--/ Header -->
+	<?php require_once('theme_includes/header_nav.php'); ?>
 
 	<!-- Main Banner -->
 	<div class="main-header" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/temp/bg-1.jpg);">
@@ -47,14 +34,14 @@ Template Name: Emailer Landing
 				Export the code and use it with any Email sending service to engage your clients.
 			</div>
 			<div class="header-buttons">
-				<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">BUY NOW</a>
+				<a href="https://themeforest.net/item/kahuna-giant-multipurpose-email-builder-access/15158486" rel="nofollow" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">BUY NOW</a>
 			</div>
 		</div>
 	</div>
 	<!--/ Main Banner -->
 
 	<!-- Section Features -->
-	<section class="section section-features">
+	<section class="section section-features" id="features">
 		<div class="section-header">
 			<h1 class="section-title">Amazing Features</h1>
 
@@ -119,7 +106,7 @@ Template Name: Emailer Landing
 				</li>
 
 				<li>
-					<div class="description">Want to find out more? <a href="#">View All Features</a></div>
+					<div class="description">Want to find out more? <a href="http://bigbangthemes.net/BBT_Builder/template/emailer/">View All Features</a></div>
 				</li>
 			</ul>
 		</div>
@@ -149,7 +136,7 @@ Template Name: Emailer Landing
 					</div>
 
 					<div class="section-buttons">
-						<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">BUY NOW</a>
+						<a href="https://themeforest.net/item/kahuna-giant-multipurpose-email-builder-access/15158486" rel="nofollow" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">BUY NOW</a>
 					</div>
 				</div>
 			</div>
@@ -171,14 +158,14 @@ Template Name: Emailer Landing
 			</div>
 
 			<div class="section-buttons">
-				<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">TRY NOW</a>
+				<a href="http://bigbangthemes.net/BBT_Builder/template/emailer/" rel="nofollow" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">TRY NOW</a>
 			</div>
 		</div>
 	</section>
 	<!--/ Section CTA -->
 
 	<!-- Section Testimonials -->
-	<section class="section section-testimonials">
+	<section class="section section-testimonials" id="testimonials">
 		<div class="section-content">
 			<div class="column-left">
 				<div class="section-header">
@@ -293,55 +280,19 @@ Template Name: Emailer Landing
 	</section>
 	<!--/ Section Testimonials -->
 
-	<!-- Footer -->
-	<footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
-		<div class="footer-top">
-			<div class="clearfix">
-				<div class="pull-left">
-					<div class="site-logo"><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt=""/></a></div>
-				</div>
-
-				<div class="pull-right">
-					<ul class="footer-menu">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Why BBT Builder</a></li>
-						<li><a href="#">Templates</a></li>
-						<li><a href="#">Portfolio</a></li>
-						<li><a href="#">Profile</a></li>
-						<li><a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-white btn-transparent">get support</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<div class="footer-bottom">
-			<div class="clearfix">
-				<div class="pull-right">
-					<ul class="footer-social">
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-behance"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-						<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-					</ul>
-				</div>
-
-				<div class="pull-left">
-					<div class="copyright">
-						<span style="color: #fb5025;">made</span>
-						<span style="color: #7fba00;">with</span>
-						<span style="color: #ff4181;">love</span>
-						<span style="color: #01a5ed;">by</span>
-						<a style="color: #ffb901;" href="http://bigbangthemes.net/">bigbangthemes</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!--/ Footer -->
+	<?php get_footer(); ?>
 
 	<!-- JS Section -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+    ga('create', 'UA-37394656-14', 'auto');
+    ga('send', 'pageview');
+
+</script>
     <?php wp_footer( );?>
 
 
