@@ -52,7 +52,7 @@ Template Name: Free D&D Landing
 					</p>
 
 					<div class="section-buttons text-center margin-bottom-40">
-						<a href="http://bigbangthemes.net/BBT_Builder/template/kahuna/?v=free_light_version&utm_source=referral&utm_medium=free-dd-page&utm_campaign=main-button" rel="nofollow" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">Start Building Now</a>
+						<a href="http://bigbangthemes.net/BBT_Builder/template/kahuna/?v=free_light_version&utm_source=referral&utm_medium=free-dd-page&utm_campaign=main-button" rel="nofollow" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">Start Building Free Now</a>
 					</div>
 
 					<p>
