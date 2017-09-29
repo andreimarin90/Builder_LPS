@@ -21,12 +21,14 @@ Template Name: Free D&D Landing
 ?>
 
 	<?php require_once('theme_includes/header_nav.php'); ?>
-
+<div itemscope itemtype="http://schema.org/Product">
 	<!-- Main Banner -->
 	<div class="main-header" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/temp/bg-1.jpg);">
 		<div class="header-inner">
 			<div class="header-pre-title"><span>FOREVER FREE newsletter builder</span></div>
-			<h1 class="header-title">FREE Drag & Drop Email Builder</h1>
+			<span>
+				<h1 class="header-title" itemprop="name">FREE Drag & Drop Email Builder</h1>
+			</span>
 		</div>
 	</div>
 	<!--/ Main Banner -->
@@ -36,7 +38,19 @@ Template Name: Free D&D Landing
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
-					<h2 class="post-title">Build more creative Email campaigns with our free newsletter builder.</h2>
+					<span itemprop="description">
+						<h2 class="post-title">Build more creative Email campaigns with our free newsletter builder.</h2>
+					</span>
+
+					<div itemprop="brand" itemscope itemtype="http://schema.org/Brand">
+						<meta itemprop="name" content="BigBangThemes">
+					</div>
+
+					<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+						<meta itemprop="price" content="00.00">
+						<meta itemprop="priceCurrency" content="USD">
+						<meta itemprop="availability" href="http://schema.org/InStock" content="In Stock">
+					</div>
 
 					<p class="first-letter">
 						Happy to present you with one of the best opportunities you can find online. For the first time ever you now have a top quality free email creator tool you can use <strong>forever</strong>. Yep, you read that right...it's going to be available for free forever.
@@ -52,7 +66,7 @@ Template Name: Free D&D Landing
 					</p>
 
 					<div class="section-buttons text-center margin-bottom-40">
-						<a href="http://bigbangthemes.net/BBT_Builder/template/kahuna/?v=free_light_version&utm_source=referral&utm_medium=free-dd-page&utm_campaign=main-button" rel="nofollow" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">Start Building Free Now</a>
+						<a itemprop="url" href="http://bigbangthemes.net/BBT_Builder/template/kahuna/?v=free_light_version&utm_source=referral&utm_medium=free-dd-page&utm_campaign=main-button" rel="nofollow" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">Start Building Free Now</a>
 					</div>
 
 					<p>
@@ -111,6 +125,7 @@ Template Name: Free D&D Landing
 		</div>
 	</section>
 	<!--/ Section Post -->
+</div>
 
 	<?php get_footer(); ?>
 
