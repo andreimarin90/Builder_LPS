@@ -15,7 +15,7 @@
 <?php 
 
 /*
-Template Name: Emailer Landing
+Template Name: Pricing
 */ 
 ?>
 
