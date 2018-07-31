@@ -30,7 +30,6 @@ jQuery(function($) {
 			this.videoPlayerRatio(); // Video Player Ratio
 
 			this.dropDownMenu(); // Dropdown Menu in Header
-			this.parallaxInit(); // Parallax
 			this.owlSlidersInit(); // Owl Carousels
 
 			//this.screenResInfo(); // Screen Resolution Info for Developers
@@ -145,67 +144,33 @@ jQuery(function($) {
 			});
 		},
 
-		parallaxInit : function() {
-			$.fn.parallax = function() {
-				var parallax = $(this),
-					xPos = parallax.data('parallax-position') ? parallax.data('parallax-position') : 'center',
-					speed = parallax.data('parallax-speed') || parallax.data('parallax-speed') == 0 ? parallax.data('parallax-speed') : .1;
-
-				function runParallax() {
-					var scrollTop = $window.scrollTop(),
-						offsetTop = parallax.offset().top,
-						parallaxHeight = parallax.outerHeight();
-
-					if (scrollTop + screenHeight > offsetTop && offsetTop + parallaxHeight > scrollTop) {
-						var yPos = parseInt((offsetTop - scrollTop) * speed, 10);
-
-						parallax.css({
-							backgroundPosition: xPos + ' ' + yPos + 'px'
-						});
-					}
-				}
-
-				if (screenWidth > 1000 && !parallax.hasClass('parallax-disabled')) {
-					parallax.css({
-						backgroundAttachment: 'fixed'
-					});
-					runParallax();
-				}
-				$window.on('scroll', function () {
-					if (screenWidth > 1000 && !parallax.hasClass('parallax-disabled')) {
-						parallax.css({
-							backgroundAttachment: 'fixed'
-						});
-						runParallax();
-					}
-				});
-				$window.on('resized', function () {
-					if (screenWidth > 1000 && !parallax.hasClass('parallax-disabled')) {
-						parallax.css({
-							backgroundAttachment: 'fixed'
-						});
-						runParallax();
-					} else {
-						parallax.css({
-							backgroundPosition: '50% 0',
-							backgroundAttachment: 'scroll'
-						});
-					}
-				});
-			};
-
-			$('.parallax').each(function () {
-				$(this).parallax();
-			});
-		},
-
 		owlSlidersInit : function() {
 			// Testimonials Slider
 			$('.testimonials-slider').owlCarousel({
-				singleItem: true,
-				navigation : false,
-				pagination : true
+				items: 1
 			});
+
+			// Screenshots Slider
+			$('.screenshots-slider').owlCarousel({
+				items: 4,
+				stagePadding: 20,
+				margin: 20,
+				loop: true,
+				dotsEach: 1,
+				dotsContainer: '.screenshots-slider-dots',
+				info: function(a,b,c,d) {
+						console.log(a,b,c,d);
+				}
+			})
+
+
+
+
+
+
+
+
+
 		},
 
 		screenResInfo : function() {

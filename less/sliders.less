@@ -6,80 +6,278 @@
 
 .owl-carousel {
 	display: none;
-	position: relative;
 	width: 100%;
+	-webkit-tap-highlight-color: transparent;
+	/* position relative and z-index fix webkit rendering fonts issue */
+	position: relative;
+	z-index: 1;
+}
+
+.owl-carousel .owl-stage {
+	position: relative;
+	-ms-touch-action: pan-Y;
+	touch-action: manipulation;
+	-moz-backface-visibility: hidden;
+	/* fix firefox animation glitch */
+}
+
+.owl-carousel .owl-stage:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+.owl-carousel .owl-stage-outer {
+	position: relative;
+	overflow: hidden;
+	/* fix for flashing background */
+	-webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+.owl-carousel .owl-wrapper,
+.owl-carousel .owl-item {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+}
+
+.owl-carousel .owl-item {
+	position: relative;
+	min-height: 1px;
+	float: left;
+	-webkit-backface-visibility: hidden;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+}
+
+.owl-carousel .owl-item img {
+	display: block;
+	width: 100%;
+}
+
+.owl-carousel .owl-nav.disabled,
+.owl-carousel .owl-dots.disabled {
+	display: none;
+}
+
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next,
+.owl-carousel .owl-dot {
+	cursor: pointer;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel button.owl-dot {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0 !important;
+	font: inherit;
+}
+
+.owl-carousel.owl-loaded {
+	display: block;
+}
+
+.owl-carousel.owl-loading {
+	opacity: 0;
+	display: block;
+}
+
+.owl-carousel.owl-hidden {
+	opacity: 0;
+}
+
+.owl-carousel.owl-refresh .owl-item {
+	visibility: hidden;
+}
+
+.owl-carousel.owl-drag .owl-item {
 	-ms-touch-action: pan-y;
+	touch-action: pan-y;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
 
-	.owl-wrapper-outer {
-		overflow: hidden;
-		position: relative;
-		width: 100%;
+.owl-carousel.owl-grab {
+	cursor: move;
+	cursor: grab;
+}
 
-		&.autoHeight{
-			.transition(height .5s ease-in-out);
-		}
+.owl-carousel.owl-rtl {
+	direction: rtl;
+}
+
+.owl-carousel.owl-rtl .owl-item {
+	float: right;
+}
+
+/* No Js */
+.no-js .owl-carousel {
+	display: block;
+}
+
+/*
+ *  Owl Carousel - Animate Plugin
+ */
+.owl-carousel .animated {
+	animation-duration: 1000ms;
+	animation-fill-mode: both;
+}
+
+.owl-carousel .owl-animated-in {
+	z-index: 0;
+}
+
+.owl-carousel .owl-animated-out {
+	z-index: 1;
+}
+
+.owl-carousel .fadeOut {
+	animation-name: fadeOut;
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
 	}
-
-	.owl-wrapper {
-		display: none;
-		position: relative;
-		-webkit-transform: translate3d(0px, 0px, 0px);
-		.clearfix();
-	}
-
-	.owl-item {
-		float: left;
-
-		&.loading {
-			min-height: 150px;
-			background: url('@{images-path}/AjaxLoader.gif') no-repeat center center;
-		}
-	}
-
-	.owl-controls {
-		.user-select();
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	}
-
-	.owl-prev,
-	.owl-next {
-		position: absolute;
-		top: 50%;
-		left: 50px;
-		text-align: center;
-		cursor: pointer;
-		background-color: transparent;
-		z-index: 2;
-		font-size: 40px;
-		color: @color-white;
-		margin-top: -20px;
+	100% {
 		opacity: 0;
-		:hover& {opacity: 1;}
-		.transition();
+	}
+}
 
-		@media @sm {left: 10px;}
+/*
+ * 	Owl Carousel - Auto Height Plugin
+ */
+.owl-height {
+	transition: height 500ms ease-in-out;
+}
 
-		&:before {
-			/*content: '\e902';
-			.icon-font();*/
+/*
+ * 	Owl Carousel - Lazy Load Plugin
+ */
+.owl-carousel .owl-item {
+	/**
+				This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
+				calculation of the height of the owl-item that breaks page layouts
+			 */
+}
+
+.owl-carousel .owl-item .owl-lazy {
+	opacity: 0;
+	transition: opacity 400ms ease;
+}
+
+.owl-carousel .owl-item .owl-lazy[src^=""], .owl-carousel .owl-item .owl-lazy:not([src]) {
+	max-height: 0;
+}
+
+.owl-carousel .owl-item img.owl-lazy {
+	transform-style: preserve-3d;
+}
+
+/*
+ * 	Owl Carousel - Video Plugin
+ */
+.owl-carousel .owl-video-wrapper {
+	position: relative;
+	height: 100%;
+	background: #000;
+}
+
+.owl-carousel .owl-video-play-icon {
+	position: absolute;
+	height: 80px;
+	width: 80px;
+	left: 50%;
+	top: 50%;
+	margin-left: -40px;
+	margin-top: -40px;
+	/*background: url("owl.video.play.png") no-repeat;*/
+	cursor: pointer;
+	z-index: 1;
+	-webkit-backface-visibility: hidden;
+	transition: transform 100ms ease;
+}
+
+.owl-carousel .owl-video-play-icon:hover {
+	-ms-transform: scale(1.3, 1.3);
+	transform: scale(1.3, 1.3);
+}
+
+.owl-carousel .owl-video-playing .owl-video-tn,
+.owl-carousel .owl-video-playing .owl-video-play-icon {
+	display: none;
+}
+
+.owl-carousel .owl-video-tn {
+	opacity: 0;
+	height: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	transition: opacity 400ms ease;
+}
+
+.owl-carousel .owl-video-frame {
+	position: relative;
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+}
+
+.owl-nav {
+	margin-top: 10px;
+	text-align: center;
+	-webkit-tap-highlight-color: transparent;
+
+	[class*='owl-'] {
+		color: #FFF;
+		font-size: 14px;
+		margin: 5px;
+		padding: 4px 7px;
+		background: #D6D6D6;
+		display: inline-block;
+		cursor: pointer;
+		border-radius: 3px;
+
+		&:hover {
+			background: #869791;
+			color: #FFF;
+			text-decoration: none;
 		}
-
-		&:hover, &:active {color: @color-pink;}
 	}
 
-	.owl-next {
-		left: auto;
-		right: 50px;
-		@media @sm {right: 10px;}
-		&:before {content: '\e901';}
-	}
+	.disabled {
+		opacity: 0.5;
+		cursor: default;
 
-	.owl-pagination {
-		margin-top: 60px;
-		@media @md {margin-top: 40px;}
+		& + .owl-dots {
+			margin-top: 10px;
+		}
 	}
+}
 
-	.owl-page {
+.owl-dots {
+	-webkit-tap-highlight-color: transparent;
+	margin-top: 60px;
+	@media @md {margin-top: 40px;}
+
+	.owl-dot {
 		display: inline-block;
 		cursor: pointer;
 		margin: 0 8px 8px 0;
@@ -88,32 +286,91 @@
 			display: block;
 			.size(8px);
 			border: none;
+			-webkit-backface-visibility: visible;
 			.border-radius(50%);
-			background-color: fade(@color-blue2, 20%);
+			background-color: fade(@color-purple, 20%);
 			.transition();
 		}
 
-		&:hover span,
-		&.active span {
-			background-color: @color-blue2;
+		&.active span,
+		&:hover span {
+			background-color: @color-purple;
+		}
+	}
+}
+
+/* =========================================================================
+   Screenshots Slider
+ =========================================================================== */
+
+.screenshots-slider {
+	width: 1220px;
+
+	@media @xs {
+		margin: 40px 0 0 -20px;
+
+	}
+
+	.item {
+		.size(280px, 492px);
+		position: relative;
+		overflow: hidden;
+		display: block;
+
+		&:before {
+			content: '';
+			.absolute();
+			background-color: @color-blue3;
+			.transition();
 		}
 
-		&.owl-numbers {
-			.size(auto);
+		span {
+			.absolute();
+			text-align: center;
+			line-height: 492px;
+			font-size: 50px;
 			color: @color-white;
-			padding: 2px 10px;
-			font-size: 12px;
-			.border-radius(30px);
+			opacity: 0;
+			.transition();
+		}
+
+		img {width: 100%;}
+	}
+
+	.owl-item {
+		padding-bottom: 30px;
+
+		&.active {
+			.item {
+				.box-shadow(-5px 8px 20px fade(@color-black, 13%));
+				.transition();
+				&:before, span {opacity: 0;}
+			}
+
+			& ~ .owl-item.active {
+				.item {
+					.box-shadow(none);
+					&:before, span {opacity: 1;}
+				}
+			}
 		}
 	}
+}
 
-	.grabbing {
-		cursor:url('@{images-path}/grabbing.png') 8 8, move;
-	}
+.screenshots-slider-dots {
+	text-align: right;
+	margin-top: 5%;
+	margin-bottom: 35px;
 
-	.owl-wrapper,
-	.owl-item {
-		.backface-visibility();
-		.transform(translate3d(0,0,0));
+	.owl-dot {
+		padding: 0;
+		margin: 0 0 0 2px;
+		display: inline-block;
+		font-size: 12px;
+		font-weight: 500;
+		color: fade(#818181, 50%);
+		.transition();
+
+		&.active {color: @color-pink;}
 	}
 }

@@ -7,7 +7,6 @@
 	font-family: @font2;
 	font-size: 66px;
 	color: @color-pink;
-	@media @md {max-width: 200px;}
 	@media @xxs {font-size: 44px;}
 
 	a {
@@ -15,22 +14,160 @@
 		white-space: nowrap;
 	}
 
+	img {max-width: 200px;}
+
 	.footer & {
-		max-width: 200px;
-		margin-bottom: 20px;
-
-		@media @sm {
-			max-width: 140px;
-			margin-top: 6px;
-		}
-
-		@media @xs {display: inline-block;}
+		margin-bottom: 42px;
+		@media @xs {margin-bottom: 26px;}
 	}
 }
 
+/* HighLighted First Letter */
+/*-----------------------------------*/
 
+.first-letter:first-letter {
+	float: left;
+	font-family: @font2;
+	font-size: 5em;
+	font-weight: 900;
+	line-height: .8;
+	color: @color-pink;
+	text-transform: uppercase;
+	padding: 0.1em .2em 0 0;
+}
 
+/* =========================================================================
+   Blurbs
+ =========================================================================== */
 
+.blurbs {
+	margin: 0 -15px 20px;
+	@media @sm {margin-bottom: 0;}
 
+	.blurb {
+		width: 25%;
+		float: left;
+		padding: 0 15px;
+		margin-bottom: 55px;
+		text-align: center;
 
+		@media @sm {
+			width: 50%;
+			&:nth-child(2n + 1) {clear: left;}
+		}
 
+		@media @xs {margin-bottom: 30px;}
+
+		@media @xxs {
+			width: 100%;
+			float: none;
+		}
+
+		.blurb-icon {
+			position: relative;
+			display: block;
+			.size(200px, 167px);
+			margin: 0 auto 55px;
+			background-image: url(../images/blurb-bg.png);
+			.background-size();
+			@media @xs {margin-bottom: 25px;}
+
+			&:before {
+				content: '';
+				.size(60px);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin: -34px 0 0 -27px;
+				background: url(../images/blurb-icons.png) 0 0 no-repeat;
+			}
+
+			&.blurb-icon-2:before {background-position: -60px 0;}
+			&.blurb-icon-3:before {background-position: -120px 0;}
+			&.blurb-icon-4:before {background-position: -180px 0;}
+		}
+
+		.blurb-title {
+			font-family: @font1;
+			font-size: @font-size + 2;
+			font-weight: 700;
+			color: @color-gray3;
+			text-transform: uppercase;
+			margin-bottom: 12px;
+		}
+
+		.blurb-description {line-height: 1.8;}
+	}
+
+	&.style2,
+	&.style3 {
+		.blurb {
+			width: 33.33333333%;
+
+			@media @sm {
+				&:nth-child(2n + 1) {clear: none;}
+			}
+
+			@media @xs {
+				width: 100%;
+				float: none;
+			}
+
+			.blurb-title {color: @color-white;}
+
+			.blurb-description {
+				padding: 0 11%;
+				color: @color-white;
+				@media @md {padding: 0;}
+				@media @xs {max-width: 290px; margin-left: auto; margin-right: auto;}
+			}
+		}
+	}
+
+	&.style3 {
+		.blurb {
+			.blurb-icon {
+				background-image: url(../images/blurb-bg2.png);
+			}
+		}
+	}
+}
+
+.blurbs-wrapper.bg-line {
+	position: relative;
+	padding-top: 40px;
+	margin-top: -40px;
+	overflow: hidden;
+
+	@media @xs {
+		padding-top: 0;
+		margin-top: 0;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 50%;
+		.size(2000px, 230px);
+		border-radius: 115px;
+		background: fade(@color-white, 20%);
+		margin-right: -700px;
+		@media @lg {margin-right: -600px;}
+		@media @lg {margin-right: -470px;}
+		@media @xs {display: none;}
+	}
+
+	&.bg-line-inverse {
+		&:before {
+			right: auto;
+			left: 50%;
+			margin-right: 0;
+			margin-left: -700px;
+			@media @lg {margin-left: -600px;}
+			@media @lg {margin-left: -470px;}
+		}
+	}
+
+	.blurbs {position: relative;}
+}

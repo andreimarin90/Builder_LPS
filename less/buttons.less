@@ -22,8 +22,8 @@
 	color: @button-font-color;
 	text-transform: uppercase;
 	white-space: nowrap;
-	letter-spacing: .1em;
-	padding: 0 @button-height*1.25;
+	letter-spacing: @button-letter-spacing;
+	padding: 0 @button-height;
 	.box-shadow(none);
 	.transition();
 
@@ -140,6 +140,36 @@
 
 	&:hover, &:active {
 		i {background-color: @link-color-hover;}
+	}
+}
+
+.btn-gradient {
+	display: inline-block;
+	.gradient-horizontal(@color-blue2, @color-purple);
+
+	span {
+		display: block;
+		height: 46px;
+		line-height: 46px;
+		background-color: @color-white;
+		padding: 0 35px;
+		margin: 2px;
+	}
+
+	em {
+		display: inline-block;
+		.gradient-horizontal(@color-blue2, @color-purple);
+		.background-clip(text);
+		color: transparent;
+		font-size: 13px;
+		font-weight: 700;
+		font-style: normal;
+		text-transform: uppercase;
+
+		.no-backgroundcliptext & {
+			background: none;
+			color: @color-blue;
+		}
 	}
 }
 

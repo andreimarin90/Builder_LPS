@@ -4,6 +4,7 @@
 /*-----------------------------------*/
 
 html {
+	&.hidden {display: block !important;}
 	@media @sm {overflow-x: hidden;}
 }
 
@@ -166,6 +167,7 @@ code {
 .color-white {color: @color-white !important;}
 .color-black {color: @color-black !important;}
 .color-gray {color: @color-gray !important;}
+.color-turquoise {color: @color-turquoise !important;}
 
 .no-padding {padding: 0 !important;}
 .no-padding-top {padding-top: 0 !important;}
@@ -176,10 +178,6 @@ code {
 .text-xs {font-size: @font-size-xs !important;}
 
 .inline-block {display: inline-block;}
-
-.ellipsis {
-	.ellipsis();
-}
 
 // Generate Paddings
 

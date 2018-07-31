@@ -19,7 +19,6 @@
 			font-weight: 400;
 			color: @color-white;
 			line-height: normal;
-			letter-spacing: .06em;
 			.ellipsis();
 		}
 
@@ -83,16 +82,12 @@
 	& > li {
 		display: inline-block;
 		vertical-align: top;
-		margin: 0 9px;
-		@media @md {margin: 0;}
-		&:first-child {margin-left: 0;}
-		&:last-child {margin-right: 0;}
 
 		& > a.menu-link {
 			font-size: @font-size;
 			height: @button-height;
 			line-height: @button-height;
-			padding: 0 20px;
+			padding: 0 18px;
 			@media @md {padding: 0 12px;}
 			.transition();
 
