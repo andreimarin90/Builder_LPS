@@ -17,6 +17,7 @@
 /*
 Template Name: Pricing
 */ 
+$is_template = (isset($_GET['buy']) && !empty($_GET['buy']));
 ?>
 
 	<?php require_once('theme_includes/header_nav.php'); ?>
@@ -132,7 +133,7 @@ Template Name: Pricing
 			</div>
 		</div>
 
-		<div class="pricing-plans">
+		<div id="pricing" class="pricing-plans">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-sm-6">
@@ -199,10 +200,35 @@ Template Name: Pricing
 							</ul>
 
 							<div class="buttons">
-								<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn">Choose</a>
+							<?php 
+								//$current_user_id = get_current_user_id();
+								//update_option("bbt_".$current_user_id."_license_builder", "");
+								//update_user_option( $current_user_id, 'payment_info', '');
+								bbtb_pricing_button($is_template);
+							?>
+								
 							</div>
 						</div>
 					</div>
+					
+					<?php if(!is_user_logged_in()): ?>
+						<div class="col-md-6 col-sm-6">
+							<?php get_template_part('login', 'form');?>
+						</div>
+					<?php else: ?>
+						<?php if(is_bbtb_child_items_exists() && bbtb_child_check_valid_user_key() != 'yes'):?>
+							<div class="col-md-12 col-sm-12">
+								<?php get_template_part('validate', 'token'); ?>
+							</div>
+						<?php elseif(isset($_GET['token']) && !empty($_GET['token']) && $is_template):?>
+							<div class="bbt-start-subscription">
+								<div class="col-md-12 col-sm-12">
+									<?php bbt_start_subscription($_GET['buy']); ?>
+								</div>
+							</div>
+						<?php endif; ?>
+					<?php endif;?>
+				
 				</div>
 			</div>
 		</div>

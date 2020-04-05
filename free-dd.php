@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <!-- Pingbacks -->
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-<<<<<<< HEAD
     <link rel="canonical" href="<?php the_permalink() ?>" />
-=======
->>>>>>> 524a3dead2dd2aad308c7e6a1f62826465d53c23
 
     <title>BBT Email builder - build free email templates & export free newsletter html</title>
     <?php wp_head(); ?>

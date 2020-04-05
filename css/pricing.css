@@ -1,0 +1,34 @@
+.bbtb_validate_toke_container{
+   display:none;
+}
+.purchase-code{
+   display:none;
+border: 1px solid red; padding: 50px;
+text-align: center;
+}
+
+.no-purchase-code{
+border: 1px solid red; padding: 50px;
+text-align: center;
+}
+.bbt-start-subscription{
+text-align: center;
+}
+.col-centered {
+    display:inline-block;
+    float:none !important;
+    /* reset the text-align */
+    /*text-align:left;*/
+    /* inline-block space fix */
+    margin-right:-4px;
+    text-align: center;
+}
+.no-purchase-code .btn.btn-large {
+    margin-bottom: 20px;
+}
+.bbt-div-message{
+color: green;
+}
+.error-messages-box{
+color : red;
+}
