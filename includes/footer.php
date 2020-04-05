@@ -9,7 +9,7 @@
 			<div class="pull-right">
 				<ul class="footer-menu">
 					<li><a href="#">Home</a></li>
-					<li><a href="#">Why BBT Builder</a></li>
+					<li><a href="#">Why Crewativity Builder</a></li>
 					<li><a href="#">Templates</a></li>
 					<li><a href="#">Portfolio</a></li>
 					<li><a href="#">Profile</a></li>
@@ -37,7 +37,7 @@
 					<span style="color: #7fba00;">with</span>
 					<span style="color: #ff4181;">love</span>
 					<span style="color: #01a5ed;">by</span>
-					<a style="color: #ffb901;" href="https://crewativity.com/">bigbangthemes</a>
+					<a style="color: #ffb901;" href="https://crewativity.com/">crewativity</a>
 				</div>
 			</div>
 		</div>

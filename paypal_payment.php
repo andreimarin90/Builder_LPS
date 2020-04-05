@@ -9,7 +9,7 @@
     <!-- Pingbacks -->
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
-    <title>BBT Email builder - build free email templates & export free newsletter html</title>
+    <title>Crewativity Email builder - build free email templates & export free newsletter html</title>
     <?php wp_head(); ?>
 </head>
 
@@ -45,7 +45,7 @@ Template Name: Free D&D Landing
 					</span>
 
 					<div itemprop="brand" itemscope itemtype="http://schema.org/Brand">
-						<meta itemprop="name" content="BigBangThemes">
+						<meta itemprop="name" content="Crewativity">
 					</div>
 
 					<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
@@ -60,7 +60,7 @@ Template Name: Free D&D Landing
 					</p>
 
 					<p>
-						One of the most important things for us here at BigBangThemes is to give back to the community which has helped us grow in such a remarkable way. 
+						One of the most important things for us here at Crewativity is to give back to the community which has helped us grow in such a remarkable way.
 						This is the main reason why we decided that offering a <strong>"Free Forever"</strong> plan for our html email builder is the best way to go. 
 						The rules to using the free version are extremely simple and straight forward. Help us spread the word about our amazing free tool by sharing 
 						the news with your <strong>Facebook</strong> or <strong>Twitter</strong> friends,
@@ -73,7 +73,7 @@ Template Name: Free D&D Landing
 
 					<p>
 						We knew that the challenge we faced was not a small one by any means. We wanted to make sure that we create a solution that's built on feedback we
-						gathered from <strong>over 9500 clients</strong> who have chosen the BigBangThemes builder in the 4 years that have passed since we started. We also knew that we needed a way to 
+						gathered from <strong>over 9500 clients</strong> who have chosen the Crewativity builder in the 4 years that have passed since we started. We also knew that we needed a way to
 						bullet proof our free email drag & drop builder from bots or black-hat techniques which would end up clogging the system up for our paying customers.
 						Thankfully the idea we were able to come up with was a perfect mix of making the builder safe for our clients, and help spread the word about it at same time. 
 						The concept is that since this is completely free to use, we want to make sure we're able to help it reach as many online people as possible. 
@@ -84,7 +84,7 @@ Template Name: Free D&D Landing
 					<div class="blockquote">
 						<blockquote>
  							One of our favorite quotes reads "Success in life is making the most number of people's lives better".  							
- 							It helps us feel a sense of purpose, and that's what we're trying to do here at BigBangThemes. 							
+ 							It helps us feel a sense of purpose, and that's what we're trying to do here at Crewativity.
  							The 'free forever' program is our way of giving back to the community which has helped us achieve so much in so little time. 						
 						</blockquote>
 
@@ -113,8 +113,8 @@ Template Name: Free D&D Landing
 										<a href="#"><i class="fa fa-share-alt"></i></a>
 
 										<ul>
-											<li><a target="_blank" href="<?php printf( '//twitter.com/share?text=%2$s&url=%1$s&via=%3$s', 'https%3A%2F%2Fcrewativity.com%2FBBT_Builder%2Ffree-drag-drop-email-builder%2F','Build Emails with the BigBangThemes Free Drag and Drop Email Builder', 'Big_Bang_Themes' )?>"><i class="fa fa-twitter"></i></a></li>
-											<li><a target="_blank" href="//www.facebook.com/sharer.php?u=https%3A%2F%2Fcrewativity.com%2FBBT_Builder%2Ffree-drag-drop-email-builder%2F&t=Build Emails with the BigBangThemes Free Drag and Drop Email Builder @BigBangThemes"><i class="fa fa-facebook"></i></a></li>
+											<li><a target="_blank" href="<?php printf( '//twitter.com/share?text=%2$s&url=%1$s&via=%3$s', 'https%3A%2F%2Fcrewativity.com%2FBBT_Builder%2Ffree-drag-drop-email-builder%2F','Build Emails with the Crewativity Free Drag and Drop Email Builder', 'Big_Bang_Themes' )?>"><i class="fa fa-twitter"></i></a></li>
+											<li><a target="_blank" href="//www.facebook.com/sharer.php?u=https%3A%2F%2Fcrewativity.com%2FBBT_Builder%2Ffree-drag-drop-email-builder%2F&t=Build Emails with the Crewativity Free Drag and Drop Email Builder @Crewativity"><i class="fa fa-facebook"></i></a></li>
 										</ul>
 									</div>
 									<!--/ Social Share Buttons -->

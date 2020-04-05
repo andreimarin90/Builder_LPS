@@ -5,7 +5,7 @@
 
 		<ul class="main-menu">
 			<li><a href="#">Home</a></li>
-			<li><a href="#">Why BBT Builder</a></li>
+			<li><a href="#">Why Crewativity Builder</a></li>
 			<li><a href="#">Templates</a></li>
 			<li><a href="#">Portfolio</a></li>
 			<li><a href="#">Profile</a></li>

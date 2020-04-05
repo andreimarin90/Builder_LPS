@@ -5,7 +5,7 @@
 
 		<ul class="main-menu">
 			<li><a href="#">Home</a></li>
-			<li><a href="#">Why BBT Builder</a></li>
+			<li><a href="#">Why Crewativity Builder</a></li>
 			<li><a href="#">Features</a></li>
 			<li><a href="#">Templates</a></li>
 			<li><a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-white btn-transparent">get started</a></li>
