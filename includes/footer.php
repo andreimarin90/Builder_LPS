@@ -37,7 +37,7 @@
 					<span style="color: #7fba00;">with</span>
 					<span style="color: #ff4181;">love</span>
 					<span style="color: #01a5ed;">by</span>
-					<a style="color: #ffb901;" href="http://bigbangthemes.net/">bigbangthemes</a>
+					<a style="color: #ffb901;" href="https://crewativity.com/">bigbangthemes</a>
 				</div>
 			</div>
 		</div>

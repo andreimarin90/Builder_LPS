@@ -70,7 +70,7 @@ Template Name: Free D&D Landing
 					</p>
 
 					<div class="section-buttons text-center margin-bottom-40">
-						<a itemprop="url" href="http://bigbangthemes.net/BBT_Builder/template/kahuna/?v=free_light_version&utm_source=referral&utm_medium=free-dd-page&utm_campaign=main-button" rel="nofollow" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">Start Building Free Now</a>
+						<a itemprop="url" href="https://crewativity.com/BBT_Builder/template/kahuna/?v=free_light_version&utm_source=referral&utm_medium=free-dd-page&utm_campaign=main-button" rel="nofollow" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">Start Building Free Now</a>
 					</div>
 
 					<p>
@@ -115,8 +115,8 @@ Template Name: Free D&D Landing
 										<a href="#"><i class="fa fa-share-alt"></i></a>
 
 										<ul>
-											<li><a target="_blank" href="<?php printf( '//twitter.com/share?text=%2$s&url=%1$s&via=%3$s', 'https%3A%2F%2Fbigbangthemes.net%2FBBT_Builder%2Ffree-drag-drop-email-builder%2F','Build Emails with the BigBangThemes Free Drag and Drop Email Builder', 'Big_Bang_Themes' )?>"><i class="fa fa-twitter"></i></a></li>
-											<li><a target="_blank" href="//www.facebook.com/sharer.php?u=https%3A%2F%2Fbigbangthemes.net%2FBBT_Builder%2Ffree-drag-drop-email-builder%2F&t=Build Emails with the BigBangThemes Free Drag and Drop Email Builder @BigBangThemes"><i class="fa fa-facebook"></i></a></li>
+											<li><a target="_blank" href="<?php printf( '//twitter.com/share?text=%2$s&url=%1$s&via=%3$s', 'https%3A%2F%2Fcrewativity.com%2FBBT_Builder%2Ffree-drag-drop-email-builder%2F','Build Emails with the BigBangThemes Free Drag and Drop Email Builder', 'Big_Bang_Themes' )?>"><i class="fa fa-twitter"></i></a></li>
+											<li><a target="_blank" href="//www.facebook.com/sharer.php?u=https%3A%2F%2Fcrewativity.com%2FBBT_Builder%2Ffree-drag-drop-email-builder%2F&t=Build Emails with the BigBangThemes Free Drag and Drop Email Builder @BigBangThemes"><i class="fa fa-facebook"></i></a></li>
 										</ul>
 									</div>
 									<!--/ Social Share Buttons -->

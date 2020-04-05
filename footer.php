@@ -29,7 +29,7 @@
 			</div>
 		</form>
 
-		<div class="copyright">Copyright &copy; 2018 by <a href="http://bigbangthemes.net/">BigBangThemes</a>. All Rights Reserved. Made with love.</div>
+		<div class="copyright">Copyright &copy; 2018 by <a href="https://crewativity.com/">BigBangThemes</a>. All Rights Reserved. Made with love.</div>
 	</div>
 </footer>
 <!--/ Footer -->
