@@ -18,7 +18,7 @@
 <?php 
 
 /*
-Template Name: Free D&D Landing
+Template Name: Payment
 */ 
 ?>
 
