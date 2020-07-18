@@ -8,7 +8,7 @@ function builder_lp_child_scripts(){
 
 	//Smooth Scroll
 	wp_enqueue_script('child-modernizr', get_stylesheet_directory_uri() . '/js/libs/modernizr.min.js', array('jquery'), null, true);
-	wp_enqueue_script('child-bbt-placeholder', get_stylesheet_directory_uri() . '/js/libs/jquery-1.12.3.min.js', array('jquery'), null, true);
+	wp_enqueue_script('child-bbt-jquery', get_stylesheet_directory_uri() . '/js/libs/jquery-1.12.3.min.js', array('jquery'), null, true);
 
 	wp_enqueue_script('child-bootstrap', get_stylesheet_directory_uri() . '/js/libs/bootstrap.min.js', array('jquery'), null, true);
 
