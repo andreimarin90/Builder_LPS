@@ -1,11 +1,9 @@
 <?php
 
-
 add_action( 'wp_enqueue_scripts', 'builder_lp_child_scripts' );
 function builder_lp_child_scripts(){
-	
 	if(is_page_template('emailer.php')
-	   || is_page_template('page-checkout.php')
+	   || strpos(get_page_template(), 'page-checkout.php')
 	) {
 		//Smooth Scroll
 		wp_enqueue_script('child-modernizr', get_stylesheet_directory_uri() . '/js/libs/modernizr.min.js', ['jquery'], null, true);
@@ -29,7 +27,13 @@ function builder_lp_child_scripts(){
 
 		//Recurly
 		wp_enqueue_script('child-bbt-recurly-js', 'https://js.recurly.com/v4/recurly.js', ['jquery'], null, true);
+		wp_enqueue_script('child-bbt-recurly-api', get_stylesheet_directory_uri() . '/js/recurly-api.js', ['jquery', 'child-bbt-js'], null, true);
 		wp_enqueue_style( 'child-material-icons', 'https://js.recurly.com/v4/recurly.css' );
+
+		wp_localize_script('child-bbt-js', 'bbt_script_vars', array(
+				'templateList' => get_email_template_list()
+			)
+		);
 	}
 }
 
@@ -78,3 +82,19 @@ add_filter( 'wpseo_canonical', '__return_false' );
 
 //remove add to cart message
 add_filter( 'wc_add_to_cart_message_html', '__return_null' );
+
+function get_email_template_list(): array
+{
+	$templateList = [];
+	$args = [
+		'post_type'      => 'template',
+		'posts_per_page' => -1
+	];
+
+	$templates = get_posts($args);
+	foreach($templates as $template) {
+		$templateList[$template->ID] = $template->post_title;
+	}
+
+	return $templateList;
+}

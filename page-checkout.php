@@ -12,9 +12,58 @@
 
 <body <?php body_class('checkout-page')?>>
 
-<?php require_once('theme_includes/header_nav.php'); ?>
+<?php
 
-<?php get_footer(); ?>
+/*
+Template Name: Page Checkout
+*/
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php wp_footer( );?>
 

@@ -42,7 +42,9 @@
 
 .blurbs {
 	margin: 0 -15px 20px;
-	@media @sm {margin-bottom: 0;}
+	@media @sm {
+		margin-bottom: 0;
+	}
 
 	.blurb {
 		width: 25%;
@@ -56,7 +58,9 @@
 			&:nth-child(2n + 1) {clear: left;}
 		}
 
-		@media @xs {margin-bottom: 30px;}
+		@media @xs {
+			margin-bottom: 30px;
+		}
 
 		@media @xxs {
 			width: 100%;
@@ -70,7 +74,9 @@
 			margin: 0 auto 55px;
 			background-image: url(../images/blurb-bg.png);
 			.background-size();
-			@media @xs {margin-bottom: 25px;}
+			@media @xs {
+				margin-bottom: 25px;
+			}
 
 			&:before {
 				content: '';
@@ -99,7 +105,6 @@
 		.blurb-description {line-height: 1.8;}
 	}
 
-<<<<<<< HEAD
 	&.style2,
 	&.style3 {
 		.blurb {
@@ -119,8 +124,14 @@
 			.blurb-description {
 				padding: 0 11%;
 				color: @color-white;
-				@media @md {padding: 0;}
-				@media @xs {max-width: 290px; margin-left: auto; margin-right: auto;}
+				@media @md {
+					padding: 0;
+				}
+				@media @xs {
+					max-width: 290px;
+					margin-left: auto;
+					margin-right: auto;
+				}
 			}
 		}
 	}
@@ -132,7 +143,8 @@
 			}
 		}
 	}
-=======
+}
+
 /* HighLighted First Letter */
 /*-----------------------------------*/
 
@@ -145,7 +157,6 @@
 	color: @color-pink;
 	text-transform: uppercase;
 	padding: 0.1em .2em 0 0;
->>>>>>> 524a3dead2dd2aad308c7e6a1f62826465d53c23
 }
 
 .blurbs-wrapper.bg-line {

@@ -4,7 +4,11 @@
 /*-----------------------------------*/
 
 html {
-	&.hidden {display: block !important;}
+	&.hidden {
+		display: block !important;
+		visibility: visible !important;
+	}
+
 	@media @sm {overflow-x: hidden;}
 }
 
