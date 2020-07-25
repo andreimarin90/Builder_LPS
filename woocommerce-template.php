@@ -28,7 +28,7 @@ Template Name: Woocommerce Template
 				Export the code and use it with any Email sending service to engage your clients.
 			</div>
 			<div class="header-buttons">
-				<a href="https://themeforest.net/item/kahuna-giant-multipurpose-email-builder-access/15158486" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">BUY NOW</a>
+				<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn btn-shadow">BUY NOW</a>
 			</div>
 		</div>
 	</div>
