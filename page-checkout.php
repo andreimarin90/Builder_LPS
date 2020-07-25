@@ -12,6 +12,13 @@
 
 <body <?php body_class('checkout-page')?>>
 
+<?php
+
+/*
+Template Name: Page Checkout
+*/
+?>
+
 <?php require_once('theme_includes/header_nav.php'); ?>
 
 <?php get_footer(); ?>
