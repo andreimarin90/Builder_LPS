@@ -6248,6 +6248,9 @@ textarea {
   border-bottom: 1px solid #626671;
   letter-spacing: 0;
 }
+.form-control .recurly-element {
+  height: 100%;
+}
 textarea,
 textarea.form-control {
   min-height: 120px;
