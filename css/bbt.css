@@ -142,7 +142,7 @@ Version: 1.0
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialicons/v53/flUhRq6tzZclQEJ-Vdg-IuiaDsNZ.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNZ.ttf) format('truetype');
 }
 .material-icons {
   font-family: 'Material Icons';
@@ -2611,21 +2611,6 @@ code {
   display: inline-block;
   position: relative;
   padding: 0 50px;
-}
-@media only screen and (max-width: 1459px) {
-  .section-pre-title span {
-    padding: 180px 0 110px;
-  }
-}
-@media only screen and (max-width: 1229px) {
-  .section-pre-title span {
-    padding: 130px 0 70px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .section-pre-title span {
-    padding: 100px 0 40px;
-  }
 }
 .section-pre-title span:before,
 .section-pre-title span:after {
@@ -6496,6 +6481,19 @@ textarea.form-control {
 }
 .contact-form .buttons {
   margin-top: 60px;
+}
+/* =========================================================================
+   Checkout Form
+ =========================================================================== */
+.checkout-form .form-field {
+  margin-bottom: 15px;
+}
+.checkout-form .form-field .form-control {
+  margin-bottom: 5px;
+}
+.checkout-form .form-field .error {
+  font-size: 14px;
+  color: #f00;
 }
 /* =========================================================================
    Owl Slider Basics

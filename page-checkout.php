@@ -19,38 +19,102 @@ Template Name: Page Checkout
 */
 ?>
 
-<section class="section">
-	<div class="container">
-
-
-
-		<form id="my-form">
-			<div class="row">
-				<div class="col-sm-6 col-md-4">
-					<input class="form-control" type="text" data-recurly="first_name" placeholder="First Name">
-				</div>
-
-				<div class="col-sm-6 col-md-4">
-					<input class="form-control" type="text" data-recurly="last_name" placeholder="Last Name">
-				</div>
-
-				<div class="col-sm-6 col-md-4">
-					<div class="form-control" id="recurly-cardNumber"></div>
-				</div>
-
-				<div class="col-sm-6 col-md-4">
-					<div class="form-control" id="recurly-cardMonth"></div>
-				</div>
-
-				<div class="col-sm-6 col-md-4">
-					<div class="form-control" id="recurly-cardYear"></div>
-				</div>
-
-				<div class="col-sm-6 col-md-4">
-					<div class="form-control" id="recurly-cardCvv"></div>
-				</div>
+<!-- Checkout Form -->
+<div class="modal fade" id="checkoutModal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Checkout Form</h4>
 			</div>
 
+			<div class="modal-body">
+				<form id="checkout-form" class="checkout-form" action="/checkout" method="post">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-field first_name">
+								<input class="form-control" type="text" data-recurly="first_name" placeholder="First Name">
+								<div class="error"></div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="form-field last_name">
+								<input class="form-control" type="text" data-recurly="last_name" placeholder="Last Name">
+								<div class="error"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-field number">
+								<div class="form-control" id="recurly-cardNumber"></div>
+								<div class="error"></div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="form-field month">
+								<div class="form-control" id="recurly-cardMonth"></div>
+								<div class="error"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-field year">
+								<div class="form-control" id="recurly-cardYear"></div>
+								<div class="error"></div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="form-field">
+								<div class="form-control" id="recurly-cardCvv"></div>
+								<div class="error"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-field postal_code">
+								<input class="form-control" type="text" data-recurly="postal_code" placeholder="Postal Code">
+								<div class="error"></div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="form-field country">
+								<input class="form-control" type="text" data-recurly="country" placeholder="Country">
+								<div class="error"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-field city">
+								<input class="form-control" type="text" data-recurly="city" placeholder="City">
+								<div class="error"></div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="form-field address1">
+								<input class="form-control" type="text" data-recurly="address1" placeholder="Address">
+								<div class="error"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<!--<div class="col-sm-6">
+							<select class="form-control" id="templatesList"></select>
+						</div>-->
+					</div>
 
 
 
@@ -59,36 +123,17 @@ Template Name: Page Checkout
 
 
 
-			<!-- Recurly.js will update this field automatically -->
-			<input type="hidden" name="recurly-token" data-recurly="token">
 
-			<button class="btn">submit</button>
-		</form>
+					<!-- Recurly.js will update this field automatically -->
+					<input type="hidden" name="recurly-token" data-recurly="token">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+					<button class="btn">submit</button>
+				</form>
+			</div>
+		</div>
 	</div>
-</section>
+</div>
+<!--/ Checkout Form -->
 
 <!-- Section Pricing -->
 <section class="section section-pricing">
@@ -112,11 +157,11 @@ Template Name: Page Checkout
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-sm-6">
-					<div class="pricing-item">
-						<div class="item-badge">best choice</div>
-						<h2 class="item-name">Free</h2>
-						<div class="item-price"><sup>$</sup>0</div>
-						<div class="item-description">100% free forever</div>
+					<div class="pricing-item active">
+						<div class="item-badge">special intro pricing</div>
+						<h2 class="item-name">Bronze</h2>
+						<div class="item-price"><sup>$</sup>19<sup>.99</sup></div>
+						<div class="item-description">Per month</div>
 
 						<ul class="item-features">
 							<li>Free forever</li>
@@ -129,7 +174,7 @@ Template Name: Page Checkout
 						</ul>
 
 						<div class="buttons">
-							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn">Choose</a>
+							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn" data-plan="bronz">Choose</a>
 						</div>
 					</div>
 				</div>
@@ -137,8 +182,8 @@ Template Name: Page Checkout
 				<div class="col-md-4 col-sm-6">
 					<div class="pricing-item">
 						<div class="item-badge">best choice</div>
-						<h2 class="item-name">Standard</h2>
-						<div class="item-price"><sup>$</sup>20</div>
+						<h2 class="item-name">Silver</h2>
+						<div class="item-price"><sup>$</sup>99<sup>.99</sup></div>
 						<div class="item-description">Per month</div>
 
 						<ul class="item-features">
@@ -152,16 +197,16 @@ Template Name: Page Checkout
 						</ul>
 
 						<div class="buttons">
-							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn">Choose</a>
+							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn" data-plan="silver">Choose</a>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-md-4 col-sm-12">
-					<div class="pricing-item active">
+					<div class="pricing-item">
 						<div class="item-badge">best choice</div>
-						<h2 class="item-name">PRO</h2>
-						<div class="item-price"><sup>$</sup>10</div>
+						<h2 class="item-name">Gold</h2>
+						<div class="item-price"><sup>$</sup>249<sup>.99</sup></div>
 						<div class="item-description">Per month</div>
 
 						<ul class="item-features">
@@ -181,7 +226,7 @@ Template Name: Page Checkout
 							//update_user_option( $current_user_id, 'payment_info', '');
 							//bbtb_pricing_button($is_template);
 							?>
-							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn">Choose</a>
+							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn" data-plan="gold">Choose</a>
 						</div>
 					</div>
 				</div>
