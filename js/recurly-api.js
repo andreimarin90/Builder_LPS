@@ -1,6 +1,12 @@
 jQuery(document).ready(function($) {
-	var recurlyPublicApiKey = 'ewr1-zt3dc3P4KgI3lmRgmvquit',
-		templateList = bbt_script_vars.templateList;
+	const 	recurlyPublicApiKey = 'ewr1-zt3dc3P4KgI3lmRgmvquit',
+		  	templateList = bbt_script_vars.templateList,
+			templateListNode = $('#templatesList'),
+			checkoutForm = $('#checkout-form'),
+			checkoutModal = $('#checkoutModal'),
+			isUserLoggedIn = bbt_script_vars.isUserLoggedIn,
+			errorCode = 1,
+			successCode = 0;
 
 	recurly.configure(recurlyPublicApiKey);
 
@@ -44,36 +50,15 @@ jQuery(document).ready(function($) {
 	cardYearElement.attach('#recurly-cardYear');
 	cardCvvElement.attach('#recurly-cardCvv');
 
-	const templateListNode = $('#templatesList');
-
 	$.each(templateList, function(index, value) {
 		templateListNode.append('<option value="' + index + '">' + value + '</option>');
 	});
 
-	var checkoutForm = $('#checkout-form');
-	var planName = '';
-
-	const checkoutPricing = recurly.Pricing.Checkout();
-
 	$('[data-plan]').on('click', function() {
-		planName = $(this).data('plan');
+		let planCode = $(this).data('plan');
 
-		checkoutPricing
-			.subscription(recurly.Pricing.Subscription()
-				.plan(planName, { quantity: 1 })
-				.catch(function (err) {
-					// err.code
-				})
-				.done()
-			)
-			.catch(function (err) {
-				// err.code
-			})
-			.done(function (price) {
-				// price object as emitted by 'change' event
-			});
-
-		$('#checkoutModal').modal('show');
+		checkoutModal.modal('show');
+		checkoutModal.find('[name="subscription-plan"]').val(planCode);
 	});
 
 	function showErrors(data) {
@@ -84,62 +69,59 @@ jQuery(document).ready(function($) {
 		});
 	}
 
-	document.querySelector('#checkout-form').addEventListener('submit', function (event) {
-		const form = this;
+	checkoutForm.on('submit', function (event) {
 		event.preventDefault();
+		let form = $(this),
+			submitButton = form.find('button.btn'),
+			errorMessageNode = form.find('.error-message p');
+
+		submitButton.toggleClass('disabled', true);
 
 		recurly.token(elements, form, function (err, token) {
 			if (err) {
 				showErrors(err);
-			} else {
-				// recurly.js has filled in the 'token' field, so now we can submit the
-				// form to your server
-
-				checkoutForm.find('.form-field').find('.error').text('');
-				console.log(token.id); //"BCdTz8BB3r3zMZ2Id8rwBg"
-				console.log(token.type); //"credit_card"
-
-				$.ajax({
-					type: checkoutForm.attr('method'),
-					url: checkoutForm.attr('action'),
-					data: {token_id: token.id, plan_code: planName},
-					dataType: "json",
-					contentType: "application/json; encoding=utf-8",
-					success: function (response) {
-
-
-						console.log(response);
-
-
-					},
-					error: function (error) {
-						console.log(error);
-					}
-				});
+				submitButton.toggleClass('disabled', false);
+				return;
 			}
+			// recurly.js has filled in the 'token' field, so now we can submit the
+			// form to your server
+
+			let params = {
+				action 		: isUserLoggedIn ? 'bbtb_subscribe_current_user' : 'bbtb_create_new_subscribed_user',
+				tokenId 	: token.id,
+				planCode	: form.find('[name="subscription-plan"]').val(),
+				email		: form.find('[name="email"]').val(),
+				nickname    : form.find('[name="nickname"]').val(),
+				firstname	: form.find('[data-recurly="first_name"]').val(),
+				lastname 	: form.find('[data-recurly="last_name"]').val(),
+				country  	: form.find('[data-recurly="country"]').val(),
+				zip   		: form.find('[data-recurly="postal_code"]').val(),
+				city		: form.find('[data-recurly="city"]').val(),
+				address		: form.find('[data-recurly="address1"]').val(),
+			};
+
+			$.ajax({
+				type: 'POST',
+				url: bbt_script_vars.ajaxUrl,
+				data: params,
+				dataType: "json",
+				beforeSend : function () {
+					//TODO::some waiting modal or loading animation
+				},
+				success: function (response) {
+					if(parseInt(response.code) === successCode) {
+						checkoutModal.modal('hide');
+						return;
+					}
+					errorMessageNode.html(response.message);
+				},
+				complete : function () {
+					submitButton.toggleClass('disabled', false);
+				},
+				error: function (error) {
+					console.log(error);
+				}
+			});
 		});
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });

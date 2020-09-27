@@ -46,6 +46,38 @@ Template Name: Page Checkout
 						</div>
 					</div>
 
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-field first_name">
+                                <input class="form-control" type="password" name="password" placeholder="Password">
+                                <div class="error"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-field last_name">
+                                <input class="form-control" type="password" name="rassword" placeholder="Confirm Your Password">
+                                <div class="error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-field first_name">
+                                <input class="form-control" type="text" name="nickname" placeholder="Nickname">
+                                <div class="error"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-field last_name">
+                                <input class="form-control" type="email" name="email" placeholder="Email">
+                                <div class="error"></div>
+                            </div>
+                        </div>
+                    </div>
+
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-field number">
@@ -88,7 +120,11 @@ Template Name: Page Checkout
 
 						<div class="col-sm-6">
 							<div class="form-field country">
-								<input class="form-control" type="text" data-recurly="country" placeholder="Country">
+								<select class="form-control" data-recurly="country" placeholder="Country">
+                                    <?php foreach(getCountries() as $slug => $country) : ?>
+                                        <option value="<?= $slug ?>"><?= $country ?></option>
+                                    <?php endforeach; ?>
+                                </select>
 								<div class="error"></div>
 							</div>
 						</div>
@@ -109,24 +145,18 @@ Template Name: Page Checkout
 							</div>
 						</div>
 					</div>
-
+                    <div class="error-message">
+                        <p></p>
+                    </div>
 					<div class="row">
 						<!--<div class="col-sm-6">
 							<select class="form-control" id="templatesList"></select>
 						</div>-->
 					</div>
 
-
-
-
-
-
-
-
-
 					<!-- Recurly.js will update this field automatically -->
 					<input type="hidden" name="recurly-token" data-recurly="token">
-
+                    <input type="hidden" name="subscription-plan">
 					<button class="btn">submit</button>
 				</form>
 			</div>
