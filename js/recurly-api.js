@@ -62,11 +62,14 @@ jQuery(document).ready(function($) {
 	});
 
 	function showErrors(data) {
-		checkoutForm.find('.form-field').find('.error').text('');
+		checkoutForm.find('.form-field').removeClass('has-error');
+		setTimeout(function() {
+			checkoutForm.find('.form-field').removeClass('has-error').find('.error').text('');
 
-		$.each(data.details, function(index, el) {
-			checkoutForm.find('.' + el.field).find('.error').text(el.messages[0]);
-		});
+			$.each(data.details, function(index, el) {
+				checkoutForm.find('.' + el.field).addClass('has-error').find('.error').text(el.messages[0]);
+			});
+		}, 200);
 	}
 
 	checkoutForm.on('submit', function (event) {
@@ -83,6 +86,8 @@ jQuery(document).ready(function($) {
 				submitButton.toggleClass('disabled', false);
 				return;
 			}
+			showErrors([]);
+
 			// recurly.js has filled in the 'token' field, so now we can submit the
 			// form to your server
 

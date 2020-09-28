@@ -72,7 +72,7 @@ Template Name: Page Checkout
 
                         <div class="col-sm-6">
                             <div class="form-field last_name">
-                                <input class="form-control" type="email" name="email" placeholder="Email">
+                                <input class="form-control" type="text" name="email" placeholder="Email">
                                 <div class="error"></div>
                             </div>
                         </div>
@@ -260,25 +260,6 @@ Template Name: Page Checkout
 						</div>
 					</div>
 				</div>
-
-				<?php if(!is_user_logged_in()): ?>
-					<div class="col-md-6 col-sm-6">
-						<?php get_template_part('login', 'form');?>
-					</div>
-				<?php else: ?>
-					<?php //if(is_bbtb_child_items_exists() && bbtb_child_check_valid_user_key() != 'yes'):?>
-					<div class="col-md-12 col-sm-12">
-						<?php get_template_part('validate', 'token'); ?>
-					</div>
-					<?php //elseif(isset($_GET['token']) && !empty($_GET['token']) && $is_template):?>
-					<div class="bbt-start-subscription">
-						<div class="col-md-12 col-sm-12">
-							<?php //bbt_start_subscription($_GET['buy']); ?>
-						</div>
-					</div>
-					<?php //endif; ?>
-				<?php endif;?>
-
 			</div>
 		</div>
 	</div>
