@@ -1,12 +1,15 @@
 jQuery(document).ready(function($) {
-	const 	recurlyPublicApiKey = 'ewr1-zt3dc3P4KgI3lmRgmvquit',
-		  	templateList = bbt_script_vars.templateList,
-			templateListNode = $('#templatesList'),
-			checkoutForm = $('#checkout-form'),
-			checkoutModal = $('#checkoutModal'),
-			isUserLoggedIn = bbt_script_vars.isUserLoggedIn,
-			errorCode = 1,
-			successCode = 0;
+	const   recurlyPublicApiKey = 'ewr1-zt3dc3P4KgI3lmRgmvquit',
+			templateList 		= bbt_script_vars.templateList,
+			templateListNode 	= $('#templatesList'),
+			checkoutForm 		= $('#checkout-form'),
+			checkoutModal 		= $('#checkoutModal'),
+			changePlanModal  	= $('#changePlanModal'),
+			isUserLoggedIn 		= bbt_script_vars.isUserLoggedIn,
+			hasActiveSubscription = bbt_script_vars.hasActiveSubscription,
+		    currentSubscription = bbt_script_vars.currentSubscription,
+			errorCode 			= 1,
+			successCode 		= 0;
 
 	recurly.configure(recurlyPublicApiKey);
 
@@ -56,9 +59,13 @@ jQuery(document).ready(function($) {
 
 	$('[data-plan]').on('click', function() {
 		let planCode = $(this).data('plan');
-
-		checkoutModal.modal('show');
-		checkoutModal.find('[name="subscription-plan"]').val(planCode);
+		if(hasActiveSubscription === false) {
+			checkoutModal.modal('show');
+			checkoutModal.find('[name="subscription-plan"]').val(planCode);
+		} else {
+			changePlanModal.modal('show');
+			changePlanModal.find('[name="subscription-plan"]').val(planCode);
+		}
 	});
 
 	function showErrors(data) {
@@ -72,10 +79,39 @@ jQuery(document).ready(function($) {
 		}, 200);
 	}
 
+	function sendToServer(params, successMessageNode, errorMessageNode, submitButton) {
+		$.ajax({
+			type: 'POST',
+			url: bbt_script_vars.ajaxUrl,
+			data: params,
+			dataType: "json",
+			beforeSend : function () {
+				//TODO::some waiting modal or loading animation
+			},
+			success: function (response) {
+				if(parseInt(response.code) === successCode) {
+					successMessageNode.html('Success!!!')
+				} else {
+					errorMessageNode.html(response.message);
+				}
+			},
+			complete : function () {
+				submitButton.toggleClass('disabled', false);
+				setTimeout(function () {
+					location.reload();
+				}, 2000);
+			},
+			error: function (error) {
+				console.log(error);
+			}
+		});
+	}
+
 	checkoutForm.on('submit', function (event) {
 		event.preventDefault();
 		let form = $(this),
 			submitButton = form.find('button.btn'),
+			successMessageNode = form.find('.success-message p'),
 			errorMessageNode = form.find('.error-message p');
 
 		submitButton.toggleClass('disabled', true);
@@ -103,30 +139,27 @@ jQuery(document).ready(function($) {
 				zip   		: form.find('[data-recurly="postal_code"]').val(),
 				city		: form.find('[data-recurly="city"]').val(),
 				address		: form.find('[data-recurly="address1"]').val(),
+				password	: form.find('[name="password"]').val(),
+				rpassword	: form.find('[name="rpassword"]').val(),
 			};
-
-			$.ajax({
-				type: 'POST',
-				url: bbt_script_vars.ajaxUrl,
-				data: params,
-				dataType: "json",
-				beforeSend : function () {
-					//TODO::some waiting modal or loading animation
-				},
-				success: function (response) {
-					if(parseInt(response.code) === successCode) {
-						checkoutModal.modal('hide');
-						return;
-					}
-					errorMessageNode.html(response.message);
-				},
-				complete : function () {
-					submitButton.toggleClass('disabled', false);
-				},
-				error: function (error) {
-					console.log(error);
-				}
-			});
+			sendToServer(params, successMessageNode, errorMessageNode, submitButton);
 		});
+	});
+
+	changePlanModal.on('submit', function (event) {
+		event.preventDefault();
+		let form = $(this),
+			submitButton = form.find('button.btn'),
+			successMessageNode = form.find('.success-message p'),
+			errorMessageNode = form.find('.error-message p');
+
+		submitButton.toggleClass('disabled', true);
+
+		let params = {
+			action 		: 'bbtb_subscribe_current_user',
+			planCode	: form.find('[name="subscription-plan"]').val(),
+		};
+
+		sendToServer(params, successMessageNode, errorMessageNode, submitButton);
 	});
 });

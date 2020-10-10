@@ -1,5 +1,7 @@
 <?php
 
+use Recurly\Service\SubscriptionService;
+
 add_action( 'wp_enqueue_scripts', 'builder_lp_child_scripts' );
 function builder_lp_child_scripts(){
 	if(is_page_template('emailer.php')
@@ -33,7 +35,9 @@ function builder_lp_child_scripts(){
 		wp_localize_script('child-bbt-js', 'bbt_script_vars', [
 				'templateList' => get_email_template_list(),
 				'isUserLoggedIn' => is_user_logged_in(),
-				'ajaxUrl' => admin_url( 'admin-ajax.php' )
+				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+				'hasActiveSubscription' => hasActiveSubscription(),
+				'currentSubscription' => getCurrentSubscription(),
 			]
 		);
 	}
@@ -349,4 +353,16 @@ function getCountries() : array
 		"ZM" => "Zambia",
 		"ZW" => "Zimbabwe"
 	];
+}
+
+function hasActiveSubscription(): bool
+{
+	return SubscriptionService::currentUserHasActiveSubscription();
+}
+
+function getCurrentSubscription(): ?string
+{
+	$subscription = SubscriptionService::getCurrentUserSubscription();
+
+	return $subscription !== null ? $subscription->getPlanCode() : null;
 }

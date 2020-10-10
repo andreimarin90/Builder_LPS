@@ -1,3 +1,9 @@
+<?php
+/*
+Template Name: Page Checkout
+*/
+$currentSubscription = \Recurly\Service\SubscriptionService::getCurrentUserSubscriptionCode();
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -11,13 +17,6 @@
 </head>
 
 <body <?php body_class('checkout-page')?>>
-
-<?php
-
-/*
-Template Name: Page Checkout
-*/
-?>
 
 <!-- Checkout Form -->
 <div class="modal fade" id="checkoutModal" tabindex="-1">
@@ -56,7 +55,7 @@ Template Name: Page Checkout
 
                         <div class="col-sm-6">
                             <div class="form-field last_name">
-                                <input class="form-control" type="password" name="rassword" placeholder="Confirm Your Password">
+                                <input class="form-control" type="password" name="rpassword" placeholder="Confirm Your Password">
                                 <div class="error"></div>
                             </div>
                         </div>
@@ -145,6 +144,9 @@ Template Name: Page Checkout
 							</div>
 						</div>
 					</div>
+                    <div class="success-message">
+                        <p></p>
+                    </div>
                     <div class="error-message">
                         <p></p>
                     </div>
@@ -164,6 +166,32 @@ Template Name: Page Checkout
 	</div>
 </div>
 <!--/ Checkout Form -->
+
+<!-- Change Plan Form -->
+<div class="modal fade" id="changePlanModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="changePLanModalLabel">Change Plan Form</h4>
+            </div>
+
+            <div class="modal-body">
+                <form id="change-plan-form" class="checkout-form" action="/checkout" method="post">
+                    <div class="success-message">
+                        <p></p>
+                    </div>
+                    <div class="error-message">
+                        <p></p>
+                    </div>
+                    <input type="hidden" name="subscription-plan">
+                    <button class="btn">Switch to Plan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ Change Plan Form -->
 
 <!-- Section Pricing -->
 <section class="section section-pricing">
@@ -204,7 +232,7 @@ Template Name: Page Checkout
 						</ul>
 
 						<div class="buttons">
-							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn" data-plan="bronz">Choose</a>
+							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn <?= $currentSubscription === RecurlySubscription::SUBSCRIPTION_BRONZE ? 'disabled' : '' ?>" data-plan="<?= RecurlySubscription::SUBSCRIPTION_BRONZE ?>">Choose</a>
 						</div>
 					</div>
 				</div>
@@ -227,7 +255,7 @@ Template Name: Page Checkout
 						</ul>
 
 						<div class="buttons">
-							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn" data-plan="silver">Choose</a>
+							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn <?= $currentSubscription === RecurlySubscription::SUBSCRIPTION_SILVER ? 'disabled' : '' ?>" data-plan="<?= RecurlySubscription::SUBSCRIPTION_SILVER ?>">Choose</a>
 						</div>
 					</div>
 				</div>
@@ -256,7 +284,7 @@ Template Name: Page Checkout
 							//update_user_option( $current_user_id, 'payment_info', '');
 							//bbtb_pricing_button($is_template);
 							?>
-							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn" data-plan="gold">Choose</a>
+							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn <?= $currentSubscription === RecurlySubscription::SUBSCRIPTION_GOLD ? 'disabled' : '' ?>" data-plan="<?= RecurlySubscription::SUBSCRIPTION_GOLD ?>">Choose</a>
 						</div>
 					</div>
 				</div>
