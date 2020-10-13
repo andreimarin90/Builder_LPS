@@ -49,12 +49,13 @@ function builder_lp_child_scripts(){
 		wp_enqueue_script('child-bootstrap', get_stylesheet_directory_uri() . '/js/libs/bootstrap.min.js', ['jquery'], null, true);
 		wp_enqueue_script('child-bbt-placeholder', get_stylesheet_directory_uri() . '/js/jquery.powerful-placeholder.min.js', ['jquery'], null, true);
 		wp_enqueue_script('child-material-js', 'https://code.getmdl.io/1.1.3/material.min.js', ['jquery'], null, true);
+		wp_enqueue_script('child-bbt-my-account', get_stylesheet_directory_uri() . '/js/my-account.js', ['jquery'], null, true);
 
 		wp_enqueue_style( 'child-material-icons', 'https://code.getmdl.io/1.1.3/material.blue-indigo.min.css' );
 		wp_enqueue_style( 'child-helpers-css', get_stylesheet_directory_uri() . '/css/helpers.css' );
 		wp_enqueue_style( 'child-bbt-css', get_stylesheet_directory_uri() . '/css/bbt.css' );
 
-		wp_localize_script('child-bbt-jquery', 'bbt_script_vars', [
+		wp_localize_script('child-bbt-my-account', 'bbt_script_vars', [
 				'templateList' => get_email_template_list(),
 				'isUserLoggedIn' => is_user_logged_in(),
 				'ajaxUrl' => admin_url( 'admin-ajax.php' ),

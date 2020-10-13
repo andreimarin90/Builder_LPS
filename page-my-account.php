@@ -25,7 +25,7 @@ Template Name: Page My Account
 			<h2 class="section-title">My <em>Account</em></h2>
 		</div>
 
-
+		<ul id="templatesList" class="templates-list"></ul>
 
 
 
