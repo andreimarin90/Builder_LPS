@@ -266,7 +266,7 @@ textarea, textarea.form-control {
  =========================================================================== */
 
 .checkout-form {
-	padding: 10px 0 30px;
+	padding: 0 0 20px;
 
 	.form-field {
 		margin-bottom: 25px;
@@ -301,18 +301,16 @@ textarea, textarea.form-control {
 		}
 	}
 
-	.error-message {
+	.message {
 		min-height: 14px;
 		margin-bottom: 5px;
 		position: relative;
 		top: -10px;
+		font-size: 14px;
+		line-height: 1;
 
-		p {
-			font-size: 14px;
-			color: #f00;
-			line-height: 1;
-			margin: 0;
-		}
+		&.success {color: @color-green;}
+		&.error {color: @color-pink;}
 	}
 
 	.btn {

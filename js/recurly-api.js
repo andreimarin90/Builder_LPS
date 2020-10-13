@@ -59,12 +59,14 @@ jQuery(document).ready(function($) {
 
 	$('[data-plan]').on('click', function() {
 		let planCode = $(this).data('plan');
-		if(hasActiveSubscription === false) {
-			checkoutModal.modal('show');
+		if(!hasActiveSubscription) {
 			checkoutModal.find('[name="subscription-plan"]').val(planCode);
+			checkoutModal.find('.modal-title span').text(planCode);
+			checkoutModal.modal('show');
 		} else {
-			changePlanModal.modal('show');
 			changePlanModal.find('[name="subscription-plan"]').val(planCode);
+			changePlanModal.find('.modal-title span').text(planCode);
+			changePlanModal.modal('show');
 		}
 	});
 
@@ -79,7 +81,10 @@ jQuery(document).ready(function($) {
 		}, 200);
 	}
 
-	function sendToServer(params, successMessageNode, errorMessageNode, submitButton) {
+	function sendToServer(params, overlay, loader, messageNode) {
+		loader.removeClass('hidden');
+		messageNode.addClass('hidden').removeClass('success error');
+
 		$.ajax({
 			type: 'POST',
 			url: bbt_script_vars.ajaxUrl,
@@ -89,39 +94,50 @@ jQuery(document).ready(function($) {
 				//TODO::some waiting modal or loading animation
 			},
 			success: function (response) {
+				loader.addClass('hidden');
+
 				if(parseInt(response.code) === successCode) {
-					successMessageNode.html('Success!!!')
+					messageNode.html('Success!!!').addClass('success').removeClass('hidden');
 				} else {
-					errorMessageNode.html(response.message);
+					messageNode.html(response.message).addClass('error').removeClass('hidden');
 				}
 			},
 			complete : function () {
-				submitButton.toggleClass('disabled', false);
 				setTimeout(function () {
-					location.reload();
-				}, 2000);
+					//location.reload();
+					overlay.removeClass('active');
+				}, 4000);
 			},
 			error: function (error) {
 				console.log(error);
+				loader.addClass('hidden');
+				messageNode.html(error.statusText).addClass('error').removeClass('hidden');
+				setTimeout(function () {
+					overlay.removeClass('active');
+				}, 4000);
 			}
 		});
 	}
 
 	checkoutForm.on('submit', function (event) {
 		event.preventDefault();
-		let form = $(this),
-			submitButton = form.find('button.btn'),
-			successMessageNode = form.find('.success-message p'),
-			errorMessageNode = form.find('.error-message p');
 
-		submitButton.toggleClass('disabled', true);
+		let form = $(this),
+			overlay = form.closest('.modal').find('.modal-overlay'),
+			loader = overlay.find('.loader'),
+			messageNode = overlay.find('.message');
+
+		overlay.addClass('active');
+		loader.removeClass('hidden');
+		messageNode.addClass('hidden');
 
 		recurly.token(elements, form, function (err, token) {
 			if (err) {
 				showErrors(err);
-				submitButton.toggleClass('disabled', false);
+				overlay.removeClass('active');
 				return;
 			}
+
 			showErrors([]);
 
 			// recurly.js has filled in the 'token' field, so now we can submit the
@@ -142,24 +158,30 @@ jQuery(document).ready(function($) {
 				password	: form.find('[name="password"]').val(),
 				rpassword	: form.find('[name="rpassword"]').val(),
 			};
-			sendToServer(params, successMessageNode, errorMessageNode, submitButton);
+
+			sendToServer(params, overlay, loader, messageNode);
 		});
 	});
 
 	changePlanModal.on('submit', function (event) {
 		event.preventDefault();
-		let form = $(this),
-			submitButton = form.find('button.btn'),
-			successMessageNode = form.find('.success-message p'),
-			errorMessageNode = form.find('.error-message p');
 
-		submitButton.toggleClass('disabled', true);
+		let form = $(this),
+			overlay = form.closest('.modal').find('modal-overlay'),
+			loader = overlay.find('.loader'),
+			messageNode = overlay.find('.message');
+
+		overlay.addClass('active');
 
 		let params = {
 			action 		: 'bbtb_subscribe_current_user',
 			planCode	: form.find('[name="subscription-plan"]').val(),
 		};
 
-		sendToServer(params, successMessageNode, errorMessageNode, submitButton);
+		sendToServer(params, overlay, loader, messageNode);
+	});
+
+	$('.overlay-close').on('click', function() {
+		$(this).closest('.modal-overlay').removeClass('active');
 	});
 });

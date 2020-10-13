@@ -22,9 +22,15 @@ $currentSubscription = \Recurly\Service\SubscriptionService::getCurrentUserSubsc
 <div class="modal fade" id="checkoutModal" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content">
+			<div class="modal-overlay">
+				<a class="overlay-close" href="#"></a>
+				<div class="loader"></div>
+				<div class="message hidden"></div>
+			</div>
+
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Checkout Form</h4>
+				<h4 class="modal-title" id="myModalLabel">Plan name: <span></span></h4>
 			</div>
 
 			<div class="modal-body">
@@ -102,7 +108,7 @@ $currentSubscription = \Recurly\Service\SubscriptionService::getCurrentUserSubsc
 						</div>
 
 						<div class="col-sm-6">
-							<div class="form-field">
+							<div class="form-field cvv">
 								<div class="form-control" id="recurly-cardCvv"></div>
 								<div class="error"></div>
 							</div>
@@ -144,19 +150,8 @@ $currentSubscription = \Recurly\Service\SubscriptionService::getCurrentUserSubsc
 							</div>
 						</div>
 					</div>
-                    <div class="success-message">
-                        <p></p>
-                    </div>
-                    <div class="error-message">
-                        <p></p>
-                    </div>
-					<div class="row">
-						<!--<div class="col-sm-6">
-							<select class="form-control" id="templatesList"></select>
-						</div>-->
-					</div>
 
-					<!-- Recurly.js will update this field automatically -->
+                    <!--<div class="message"></div>-->
 					<input type="hidden" name="recurly-token" data-recurly="token">
                     <input type="hidden" name="subscription-plan">
 					<button class="btn">submit</button>
@@ -171,19 +166,19 @@ $currentSubscription = \Recurly\Service\SubscriptionService::getCurrentUserSubsc
 <div class="modal fade" id="changePlanModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
+			<div class="modal-overlay">
+				<div class="loader"></div>
+				<div class="message hidden"></div>
+			</div>
+
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="changePLanModalLabel">Change Plan Form</h4>
+                <h4 class="modal-title" id="changePLanModalLabel">Plan name: <span></span></h4>
             </div>
 
             <div class="modal-body">
                 <form id="change-plan-form" class="checkout-form" action="/checkout" method="post">
-                    <div class="success-message">
-                        <p></p>
-                    </div>
-                    <div class="error-message">
-                        <p></p>
-                    </div>
+                    <!--<div class="message"></div>-->
                     <input type="hidden" name="subscription-plan">
                     <button class="btn">Switch to Plan</button>
                 </form>

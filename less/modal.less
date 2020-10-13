@@ -1,0 +1,152 @@
+@import "mixins";
+
+/* =========================================================================
+   Modal
+ =========================================================================== */
+
+.modal-content {
+	border: none;
+	.box-shadow(0 5px 15px fade(@color-black, 10%));
+}
+
+.modal-header {
+	padding: 15px 30px;
+	border: none;
+	background: @color-blue3;
+	border-radius: 5px 5px 0 0;
+
+	.close {
+		margin: 0;
+		position: absolute;
+		top: 23px;
+		right: 30px;
+		.size(20px);
+		.transform(rotateZ(45deg));
+		opacity: 1;
+
+		&:before,
+		&:after {
+			content: '';
+			.size(2px, 100%);
+			position: absolute;
+			top: 0;
+			left: 9px;
+			background: @color-white;
+		}
+
+		&:after {
+			.size(100%, 2px);
+			top: 9px;
+			left: 0;
+		}
+
+		span {display: none;}
+	}
+}
+
+.modal-title {
+	font-size: 26px;
+	font-weight: 400;
+	color: @color-white;
+	line-height: 1.5;
+	span {text-transform: capitalize;}
+}
+
+.modal-body {
+	padding: 30px;
+
+	@media @xs {
+		.btn {width: 100%;}
+	}
+}
+
+.modal-overlay {
+	.absolute(@z-index: 9);
+	background: fade(@color-white, 95%);
+	border-radius: 6px;
+	visibility: hidden;
+	opacity: 0;
+	.transition();
+
+	@media @xs {
+		top: auto;
+		min-height: 100vh;
+	}
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.overlay-close {
+		position: absolute;
+		top: 23px;
+		right: 30px;
+		.size(20px);
+		.transform(rotateZ(45deg));
+
+		&:before,
+		&:after {
+			content: '';
+			.size(2px, 100%);
+			position: absolute;
+			top: 0;
+			left: 9px;
+			background: @color-dark5;
+		}
+
+		&:after {
+			.size(100%, 2px);
+			top: 9px;
+			left: 0;
+		}
+	}
+
+	.loader {
+		.size(60px);
+		border: 4px solid @color-blue3;
+		border-top: 4px solid transparent;
+		border-radius: 50%;
+		animation: spin 1s linear infinite;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -30px 0 0 -30px;
+	}
+
+	.message {
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 1.5;
+		text-align: center;
+		position: absolute;
+		top: 50%;
+		left: 30px;
+		right: 30px;
+		.transform(translateY(-50%));
+
+		&.success {color: @color-green;}
+		&.error {color: @color-pink;}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
