@@ -32,14 +32,7 @@ function builder_lp_child_scripts(){
 		wp_enqueue_script('child-bbt-recurly-api', get_stylesheet_directory_uri() . '/js/recurly-api.js', ['jquery', 'child-bbt-js'], null, true);
 		wp_enqueue_style( 'child-material-icons', 'https://js.recurly.com/v4/recurly.css' );
 
-		wp_localize_script('child-bbt-js', 'bbt_script_vars', [
-				'templateList' => get_email_template_list(),
-				'isUserLoggedIn' => is_user_logged_in(),
-				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-				'hasActiveSubscription' => hasActiveSubscription(),
-				'currentSubscription' => getCurrentSubscription(),
-			]
-		);
+		wp_localize_script('child-bbt-js', 'bbt_script_vars', getUserData());
 	}
 
 	if(strpos(get_page_template(), 'page-my-account.php')) {
@@ -55,14 +48,7 @@ function builder_lp_child_scripts(){
 		wp_enqueue_style( 'child-helpers-css', get_stylesheet_directory_uri() . '/css/helpers.css' );
 		wp_enqueue_style( 'child-bbt-css', get_stylesheet_directory_uri() . '/css/bbt.css' );
 
-		wp_localize_script('child-bbt-my-account', 'bbt_script_vars', [
-				'templateList' => get_email_template_list(),
-				'isUserLoggedIn' => is_user_logged_in(),
-				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-				'hasActiveSubscription' => hasActiveSubscription(),
-				'currentSubscription' => getCurrentSubscription(),
-			]
-		);
+		wp_localize_script('child-bbt-my-account', 'bbt_script_vars', getUserData());
 	}
 }
 
@@ -388,4 +374,29 @@ function getCurrentSubscription(): ?string
 	$subscription = SubscriptionService::getCurrentUserSubscription();
 
 	return $subscription !== null ? $subscription->getPlanCode() : null;
+}
+
+function getUserData(): array
+{
+	$userData = [];
+
+	if(is_user_logged_in()) {
+		$user                   = wp_get_current_user();
+		$userData['firstName']  = $user->first_name;
+		$userData['lastName']   = $user->last_name;
+		$userData['nickName']   = $user->nickname;
+		$userData['email']      = $user->user_email;
+		$userData['zip']        = get_user_meta( $user->ID, 'zip', true );
+		$userData['countryISO'] = get_user_meta( $user->ID, 'country', true );
+		$userData['city']       = get_user_meta( $user->ID, 'city', true );
+		$userData['address']    = get_user_meta( $user->ID, 'address', true );
+	}
+
+	return array_merge($userData, [
+		'ajaxUrl'               => admin_url( 'admin-ajax.php' ),
+		'templateList'          => get_email_template_list(),
+		'isUserLoggedIn'        => is_user_logged_in(),
+		'hasActiveSubscription' => hasActiveSubscription(),
+		'currentSubscription'   => getCurrentSubscription(),
+	]);
 }

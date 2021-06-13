@@ -6,6 +6,14 @@ jQuery(document).ready(function($) {
 			checkoutModal 		= $('#checkoutModal'),
 			changePlanModal  	= $('#changePlanModal'),
 			isUserLoggedIn 		= bbt_script_vars.isUserLoggedIn,
+			firstName			= bbt_script_vars.firstName,
+		    lastName			= bbt_script_vars.lastName,
+			nickName			= bbt_script_vars.nickName,
+			email				= bbt_script_vars.email,
+			zip				    = bbt_script_vars.zip,
+			countryId    		= bbt_script_vars.countryId,
+			city				= bbt_script_vars.city,
+			address				= bbt_script_vars.address,
 			hasActiveSubscription = bbt_script_vars.hasActiveSubscription,
 		    currentSubscription = bbt_script_vars.currentSubscription,
 			errorCode 			= 1,
@@ -59,8 +67,17 @@ jQuery(document).ready(function($) {
 
 	$('[data-plan]').on('click', function() {
 		let planCode = $(this).data('plan');
+
 		if(!hasActiveSubscription) {
 			checkoutModal.find('[name="subscription-plan"]').val(planCode);
+			checkoutModal.find('.first_name input').val(firstName);
+			checkoutModal.find('.last_name input').val(lastName);
+			checkoutModal.find('.nickname input').val(nickName);
+			checkoutModal.find('.email input').val(email);
+			checkoutModal.find('.postal_code input').val(zip);
+			checkoutModal.find('.city input').val(city);
+			checkoutModal.find('.address1 input').val(address);
+			checkoutModal.find('.country select').attr('selected', 'selected');
 			checkoutModal.find('.modal-title span').text(planCode);
 			checkoutModal.modal('show');
 		} else {

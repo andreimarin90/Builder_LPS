@@ -6,8 +6,13 @@ jQuery(document).ready(function($) {
 			hasActiveSubscription = bbt_script_vars.hasActiveSubscription,
 		    currentSubscription = bbt_script_vars.currentSubscription;
 
-	const checkboxTemplate = function(index, value) {
-		return '<li><div class="checkbox"><input type="checkbox" id="' + index + '" name="' + index + '"><label for="' + index + '">' + value + '</label></div></li>';
+	const checkboxTemplate = function (index, value) {
+		return '<li>' +
+			   		'<div class="checkbox">' +
+			   		'<input type="checkbox" id="' + index + '" name="' + index + '" value="' + index + '">' +
+			   		'<label for="' + index + '">' + value + '</label>' +
+			   		'</div>' +
+			   '</li>';
 	};
 
 	$.each(templateList, function(index, value) {
@@ -29,13 +34,4 @@ jQuery(document).ready(function($) {
 
 		console.log(templateSelectionForm.serialize());
 	});
-
-
-
-
-
-
-
-
-
 });
