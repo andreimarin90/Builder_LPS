@@ -115,6 +115,7 @@ jQuery(document).ready(function($) {
 
 				if(parseInt(response.code) === successCode) {
 					messageNode.html('Success!!!').addClass('success').removeClass('hidden');
+					window.location.href = '../';
 				} else {
 					messageNode.html(response.message).addClass('error').removeClass('hidden');
 				}
