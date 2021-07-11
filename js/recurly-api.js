@@ -1,23 +1,24 @@
 jQuery(document).ready(function($) {
-	const   recurlyPublicApiKey = 'ewr1-zt3dc3P4KgI3lmRgmvquit',
-			templateList 		= bbt_script_vars.templateList,
-			templateListNode 	= $('#templatesList'),
-			checkoutForm 		= $('#checkout-form'),
-			checkoutModal 		= $('#checkoutModal'),
-			changePlanModal  	= $('#changePlanModal'),
-			isUserLoggedIn 		= bbt_script_vars.isUserLoggedIn,
-			firstName			= bbt_script_vars.firstName,
-		    lastName			= bbt_script_vars.lastName,
-			nickName			= bbt_script_vars.nickName,
-			email				= bbt_script_vars.email,
-			zip				    = bbt_script_vars.zip,
-			countryId    		= bbt_script_vars.countryId,
-			city				= bbt_script_vars.city,
-			address				= bbt_script_vars.address,
+	const   recurlyPublicApiKey   = 'ewr1-zt3dc3P4KgI3lmRgmvquit',
+			templateList 		  = bbt_script_vars.templateList,
+			templateListNode 	  = $('#templatesList'),
+			checkoutForm 		  = $('#checkout-form'),
+			checkoutModal 		  = $('#checkoutModal'),
+			changePlanModal  	  = $('#changePlanModal'),
+			isUserLoggedIn 		  = bbt_script_vars.isUserLoggedIn,
+			firstName			  = bbt_script_vars.firstName,
+			lastName			  = bbt_script_vars.lastName,
+			nickName			  = bbt_script_vars.nickName,
+			email				  = bbt_script_vars.email,
+			zip				      = bbt_script_vars.zip,
+			countryId    		  = bbt_script_vars.countryId,
+			city				  = bbt_script_vars.city,
+			address				  = bbt_script_vars.address,
+			currentSubscription   = bbt_script_vars.currentSubscription,
+			hasNoSubscription     = !currentSubscription,
 			hasActiveSubscription = bbt_script_vars.hasActiveSubscription,
-		    currentSubscription = bbt_script_vars.currentSubscription,
-			errorCode 			= 1,
-			successCode 		= 0;
+			errorCode 			  = 1,
+			successCode 		  = 0;
 
 	recurly.configure(recurlyPublicApiKey);
 
@@ -68,7 +69,7 @@ jQuery(document).ready(function($) {
 	$('[data-plan]').on('click', function() {
 		let planCode = $(this).data('plan');
 
-		if(!hasActiveSubscription) {
+		if(hasNoSubscription) {
 			checkoutModal.find('[name="subscription-plan"]').val(planCode);
 			checkoutModal.find('.first_name input').val(firstName);
 			checkoutModal.find('.last_name input').val(lastName);
@@ -81,8 +82,14 @@ jQuery(document).ready(function($) {
 			checkoutModal.find('.modal-title span').text(planCode);
 			checkoutModal.modal('show');
 		} else {
+			let buttonText = $.trim($(this).text()).toLowerCase();
+			if (buttonText === 'choose') {
+				buttonText = 'SWITCH TO PLAN'
+			}
+
 			changePlanModal.find('[name="subscription-plan"]').val(planCode);
 			changePlanModal.find('.modal-title span').text(planCode);
+			changePlanModal.find('form button').text(buttonText);
 			changePlanModal.modal('show');
 		}
 	});
@@ -114,8 +121,10 @@ jQuery(document).ready(function($) {
 				loader.addClass('hidden');
 
 				if(parseInt(response.code) === successCode) {
-					messageNode.html('Success!!!').addClass('success').removeClass('hidden');
-					window.location.href = '../';
+					messageNode.html('Subscribed!!!').addClass('success').removeClass('hidden');
+					setTimeout(function () {
+						window.location.href = '../';
+					}, 3500);
 				} else {
 					messageNode.html(response.message).addClass('error').removeClass('hidden');
 				}
@@ -185,7 +194,7 @@ jQuery(document).ready(function($) {
 		event.preventDefault();
 
 		let form = $(this),
-			overlay = form.closest('.modal').find('modal-overlay'),
+			overlay = $('#changePlanModal .modal-overlay'),
 			loader = overlay.find('.loader'),
 			messageNode = overlay.find('.message');
 

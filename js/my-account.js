@@ -1,10 +1,10 @@
 jQuery(document).ready(function($) {
-	const   templateList 		= bbt_script_vars.templateList,
-			templateListNode 	= $('#templatesList'),
-			templateSelectionForm 	= $('.choose-templates-form'),
-			isUserLoggedIn 		= bbt_script_vars.isUserLoggedIn,
+	const   templateList 		  = bbt_script_vars.templateList,
+			templateListNode 	  = $('#templatesList'),
+			templateSelectionForm = $('.choose-templates-form'),
+			isUserLoggedIn 		  = bbt_script_vars.isUserLoggedIn,
 			hasActiveSubscription = bbt_script_vars.hasActiveSubscription,
-		    currentSubscription = bbt_script_vars.currentSubscription;
+		    currentSubscription   = bbt_script_vars.currentSubscription;
 
 	const checkboxTemplate = function (index, value) {
 		return '<li>' +

@@ -6,8 +6,10 @@ Template Name: Page Checkout
 
 use Recurly\Service\SubscriptionService;
 
-$currentSubscription = SubscriptionService::getCurrentUserSubscriptionCode();
-$userData            = getUserData();
+$userData                = getUserData();
+$currentSubscription     = SubscriptionService::getUserSubscription( wp_get_current_user() );
+$currentSubscriptionCode = $currentSubscription->getPlanCode();
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -233,7 +235,11 @@ $userData            = getUserData();
 						</ul>
 
 						<div class="buttons">
-							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn <?= $currentSubscription === RecurlySubscription::SUBSCRIPTION_BRONZE ? 'disabled' : '' ?>" data-plan="<?= RecurlySubscription::SUBSCRIPTION_BRONZE ?>">Choose</a>
+							<a href="#"
+                               class="mdl-button mdl-js-button mdl-js-ripple-effect btn <?= $currentSubscriptionCode === RecurlySubscription::SUBSCRIPTION_BRONZE && $currentSubscription->isActive() ? 'disabled' : '' ?>"
+                               data-plan="<?= RecurlySubscription::SUBSCRIPTION_BRONZE ?>">
+                                <?= $currentSubscriptionCode === RecurlySubscription::SUBSCRIPTION_BRONZE && $currentSubscription->isCanceled() ? 'Reactivate' : 'Choose' ?>
+                            </a>
 						</div>
 					</div>
 				</div>
@@ -256,7 +262,11 @@ $userData            = getUserData();
 						</ul>
 
 						<div class="buttons">
-							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn <?= $currentSubscription === RecurlySubscription::SUBSCRIPTION_SILVER ? 'disabled' : '' ?>" data-plan="<?= RecurlySubscription::SUBSCRIPTION_SILVER ?>">Choose</a>
+							<a href="#"
+                               class="mdl-button mdl-js-button mdl-js-ripple-effect btn <?= $currentSubscriptionCode === RecurlySubscription::SUBSCRIPTION_SILVER && $currentSubscription->isActive() ? 'disabled' : '' ?>"
+                               data-plan="<?= RecurlySubscription::SUBSCRIPTION_SILVER ?>">
+                                <?= $currentSubscriptionCode === RecurlySubscription::SUBSCRIPTION_SILVER && $currentSubscription->isCanceled() ? 'Reactivate' : 'Choose' ?>
+                            </a>
 						</div>
 					</div>
 				</div>
@@ -279,7 +289,11 @@ $userData            = getUserData();
 						</ul>
 
 						<div class="buttons">
-							<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect btn <?= $currentSubscription === RecurlySubscription::SUBSCRIPTION_GOLD ? 'disabled' : '' ?>" data-plan="<?= RecurlySubscription::SUBSCRIPTION_GOLD ?>">Choose</a>
+							<a href="#"
+                               class="mdl-button mdl-js-button mdl-js-ripple-effect btn <?= $currentSubscriptionCode === RecurlySubscription::SUBSCRIPTION_GOLD && $currentSubscription->isActive() ? 'disabled' : '' ?>"
+                               data-plan="<?= RecurlySubscription::SUBSCRIPTION_GOLD ?>">
+                                <?= $currentSubscriptionCode === RecurlySubscription::SUBSCRIPTION_GOLD && $currentSubscription->isCanceled() ? 'Reactivate' : 'Choose' ?>
+                            </a>
 						</div>
 					</div>
 				</div>
