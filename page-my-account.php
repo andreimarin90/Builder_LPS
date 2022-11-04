@@ -28,7 +28,7 @@ Template Name: Page My Account
 		<form class="choose-templates-form" action="#" method="post">
 			<h2 class="form-title">Select up to 6 templates</h2>
 			<ul id="templatesList" class="templates-list"></ul>
-			<button class="btn mdl-button mdl-js-button mdl-js-ripple-effect save-selection" type="submit">Save Selection</button>
+			<button class="btn mdl-button mdl-js-button mdl-js-ripple-effect" type="submit">Save Selection</button>
 		</form>
 	</div>
 </section>
